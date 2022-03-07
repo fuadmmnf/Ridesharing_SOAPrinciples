@@ -1,6 +1,10 @@
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/ObjectFactory.java
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/Currency.java
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/package-info.java
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/GetCountryResponse.java
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/GetCountryRequest.java
-/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/baeldung/springsoap/gen/Country.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/Currency.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/package-info.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/repositories/CountryRepository.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/config/WebServiceConfig.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/endpoints/CountryEndpoint.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/GetCountryRequest.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/Country.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/Application.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/GetCountryResponse.java
+/media/fuad/Work/MSSE/Distributed Software Engineering/labs/RideSharing_SOA/src/main/java/com/example/rideshare/gen/ObjectFactory.java
