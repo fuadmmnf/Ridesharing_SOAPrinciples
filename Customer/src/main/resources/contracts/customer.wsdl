@@ -10,10 +10,10 @@
 
 
             <xsd:import namespace="http://www.example.com/rideshare/gen"
-                        schemaLocation="../schemas/payment_header.xsd"/>
+                        schemaLocation="../schemas/payment-header.xsd"/>
 
             <xsd:import namespace="http://www.example.com/rideshare/gen"
-                        schemaLocation="../schemas/acknowledgement_code.xsd"/>
+                        schemaLocation="../schemas/acknowledgement-code.xsd"/>
 
 
         </xsd:schema>
