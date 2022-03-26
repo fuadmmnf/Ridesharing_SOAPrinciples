@@ -48,7 +48,7 @@
         <!--    <wsdl:types>-->
 
         <!--        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">-->
-        <!--            <xsd:import namespace="http://www.example.com/rideshare/gen" schemaLocation="countries.wsdl"/>-->
+        <!--            <xsd:import namespace="http://www.example.com/rideshare/gen" schemaLocation="customer.wsdl"/>-->
         <!--        </xsd:schema>-->
         <!--    </wsdl:types>-->
         <!--    <wsdl:message name="getCountryResponse">-->
