@@ -70,10 +70,10 @@ public class CustomerEndpoint {
     }
 
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "PaymentHeader")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerPaymentMedium")
     @ResponsePayload
     public AcknowledgementCodeResponse storePaymentInfo(@RequestPayload CustomerPaymentMedium customerPaymentMedium) {
-        customerRepository.setCustomerPaymentHeader(customerPaymentMedium.getCustomerId(), customerPaymentMedium.getPaymentHeader());
+        customerRepository.setCustomerPaymentHeader(customerPaymentMedium.getCustomerIdentifier().getId(), customerPaymentMedium.getPaymentHeader());
         return createAckResponse(AcknowledgementCode.UPDATED);
     }
 }

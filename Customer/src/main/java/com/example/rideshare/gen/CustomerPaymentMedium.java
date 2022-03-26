@@ -1,15 +1,15 @@
 package com.example.rideshare.gen;
 
 public class CustomerPaymentMedium {
-    protected String customerId;
+    protected CustomerIdentifier customerIdentifier;
     protected PaymentHeader paymentHeader;
 
-    public String getCustomerId() {
-        return customerId;
+    public CustomerIdentifier getCustomerIdentifier() {
+        return customerIdentifier;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomerIdentifier(CustomerIdentifier customerIdentifier) {
+        this.customerIdentifier = customerIdentifier;
     }
 
     public PaymentHeader getPaymentHeader() {

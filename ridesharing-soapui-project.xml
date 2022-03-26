@@ -92,7 +92,7 @@
          </sch:User>
       </sch:RideRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://uthao.com/ride/RequestRide"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="de980f36-0bea-421e-b694-2a99901b3c16" wsaVersion="NONE" name="CustomerResourceBinding" type="wsdl" bindingName="{http://www.example.com/rideshare/definitions}CustomerResourceBinding" soapVersion="1_1" anonymous="optional" definition="file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl"><con:part><con:url>file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.example.com/rideshare/definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema="http://www.example.com/rideshare/gen" xmlns:tns="http://www.example.com/rideshare/definitions" xmlns="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://uthao.com/ride/RequestRide"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="f12ca28f-27ac-4e69-930b-a596af7a5835" wsaVersion="NONE" name="CustomerResourceBinding" type="wsdl" bindingName="{http://www.example.com/rideshare/definitions}CustomerResourceBinding" soapVersion="1_1" anonymous="optional" definition="file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl"><con:part><con:url>file:/media/fuad/Work/MSSE/Distributed%20Software%20Engineering/labs/RideSharing_SOA/Customer/src/main/resources/contracts/customer.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.example.com/rideshare/definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema="http://www.example.com/rideshare/gen" xmlns:tns="http://www.example.com/rideshare/definitions" xmlns="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <xsd:import namespace="http://www.example.com/rideshare/gen" schemaLocation="../schemas/customer.xsd"/>
@@ -107,6 +107,12 @@
     <wsdl:part element="schema:CustomerDocument" name="CustomerDocument"/>
   </wsdl:message>
   <wsdl:message name="CustomerIdentifier">
+    <wsdl:part element="schema:CustomerIdentifier" name="CustomerIdentifier"/>
+  </wsdl:message>
+  <wsdl:message name="CustomerIdentifierDetail">
+    <wsdl:part element="schema:CustomerIdentifier" name="CustomerIdentifier"/>
+  </wsdl:message>
+  <wsdl:message name="CustomerIdentifierPayment">
     <wsdl:part element="schema:CustomerIdentifier" name="CustomerIdentifier"/>
   </wsdl:message>
   <wsdl:message name="PaymentHeader">
@@ -133,15 +139,15 @@
       <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
     </wsdl:operation>
     <wsdl:operation name="GetDetails">
-      <wsdl:input message="tns:CustomerIdentifier" name="CustomerIdentifier"/>
+      <wsdl:input message="tns:CustomerIdentifierDetail" name="CustomerIdentifierDetail"/>
       <wsdl:output message="tns:CustomerDocument" name="CustomerDocument"/>
     </wsdl:operation>
     <wsdl:operation name="GetPaymentMedium">
-      <wsdl:input message="tns:CustomerIdentifier" name="CustomerIdentifier"/>
+      <wsdl:input message="tns:CustomerIdentifierPayment" name="CustomerIdentifierPayment"/>
       <wsdl:output message="tns:PaymentHeader" name="PaymentHeader"/>
     </wsdl:operation>
     <wsdl:operation name="StorePaymentInfo">
-      <wsdl:input message="tns:CustomerPaymentMedium" name="PaymentPaymentMedium"/>
+      <wsdl:input message="tns:CustomerPaymentMedium" name="CustomerPaymentMedium"/>
       <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
     </wsdl:operation>
   </wsdl:portType>
@@ -176,7 +182,7 @@
     </wsdl:operation>
     <wsdl:operation name="GetDetails">
       <soap:operation soapAction="http://mycompany.com/GetDetails"/>
-      <wsdl:input name="CustomerIdentifier">
+      <wsdl:input name="CustomerIdentifierDetail">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="CustomerDocument">
@@ -185,7 +191,7 @@
     </wsdl:operation>
     <wsdl:operation name="GetPaymentMedium">
       <soap:operation soapAction="http://mycompany.com/GetPaymentMedium"/>
-      <wsdl:input name="CustomerIdentifier">
+      <wsdl:input name="CustomerIdentifierPayment">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="PaymentHeader">
@@ -194,7 +200,7 @@
     </wsdl:operation>
     <wsdl:operation name="StorePaymentInfo">
       <soap:operation soapAction="http://mycompany.com/StorePaymentInfo"/>
-      <wsdl:input name="PaymentPaymentMedium">
+      <wsdl:input name="CustomerPaymentMedium">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="AcknowledgementCodeResponse">
@@ -266,28 +272,28 @@
       <xs:enumeration value="FAILED"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/customer</con:endpoint></con:endpoints><con:operation id="e3cb2833-e147-4f25-a31a-13ad2780b25b" isOneWay="false" action="http://mycompany.com/BanCustomer" name="BanCustomer" bindingOperationName="BanCustomer" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerIdentifier" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f34d3ef3-1cbd-4593-981b-536daf2a3c44" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/customer</con:endpoint></con:endpoints><con:operation id="9b6643e6-9ac4-4032-8418-556f5fcc8a0d" isOneWay="false" action="http://mycompany.com/BanCustomer" name="BanCustomer" bindingOperationName="BanCustomer" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerIdentifier" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0766e192-3d24-4be4-92cc-6558046474bd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gen:CustomerIdentifier>
          <gen:id>?</gen:id>
       </gen:CustomerIdentifier>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/BanCustomer"/></con:call></con:operation><con:operation id="20388c17-c6f2-4327-b52b-df0d111765f1" isOneWay="false" action="http://mycompany.com/GetDetails" name="GetDetails" bindingOperationName="GetDetails" type="Request-Response" outputName="CustomerDocument" inputName="CustomerIdentifier" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cff923ec-ae9c-4c82-9fbf-abf86dc2e718" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <gen:CustomerIdentifier>
-         <gen:id>1</gen:id>
-      </gen:CustomerIdentifier>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/GetDetails"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b1d12f95-784b-4282-8b8b-601a9b0983a1" isOneWay="false" action="http://mycompany.com/GetPaymentMedium" name="GetPaymentMedium" bindingOperationName="GetPaymentMedium" type="Request-Response" outputName="PaymentHeader" inputName="CustomerIdentifier" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="386cff14-2c01-4f6b-8914-cae4bde4dcb0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/BanCustomer"/></con:call></con:operation><con:operation id="9e849e82-2aaf-4944-aa12-877f48529e07" isOneWay="false" action="http://mycompany.com/GetDetails" name="GetDetails" bindingOperationName="GetDetails" type="Request-Response" outputName="CustomerDocument" inputName="CustomerIdentifierDetail" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b4e0ad81-4ef1-4959-8e6e-2a634c208167" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gen:CustomerIdentifier>
          <gen:id>?</gen:id>
       </gen:CustomerIdentifier>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/GetPaymentMedium"/></con:call></con:operation><con:operation id="07ba213a-a736-4b42-8d5f-1bd8758c6bf5" isOneWay="false" action="http://mycompany.com/RegisterCustomer" name="RegisterCustomer" bindingOperationName="RegisterCustomer" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d687ac8f-2b98-48c1-8945-b2acda6af6f3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/GetDetails"/></con:call></con:operation><con:operation id="5f0334ff-2f2c-429c-a796-c4283d6b8331" isOneWay="false" action="http://mycompany.com/GetPaymentMedium" name="GetPaymentMedium" bindingOperationName="GetPaymentMedium" type="Request-Response" outputName="PaymentHeader" inputName="CustomerIdentifierPayment" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e2b13c8f-70be-407e-be9a-78ee479e29f5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gen:CustomerIdentifier>
+         <gen:id>?</gen:id>
+      </gen:CustomerIdentifier>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/GetPaymentMedium"/></con:call></con:operation><con:operation id="aab95594-78f9-425e-9398-2eade87b7ffd" isOneWay="false" action="http://mycompany.com/RegisterCustomer" name="RegisterCustomer" bindingOperationName="RegisterCustomer" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b4e83498-9da1-484e-95e1-42ec82c5d71b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gen:CustomerRequest>
@@ -296,7 +302,7 @@
          <gen:address>?</gen:address>
       </gen:CustomerRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/RegisterCustomer"/></con:call></con:operation><con:operation id="b55bb515-4836-417a-b362-6708eab8b430" isOneWay="false" action="http://mycompany.com/StorePaymentInfo" name="StorePaymentInfo" bindingOperationName="StorePaymentInfo" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="PaymentPaymentMedium" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9d5d26e-9106-44d7-8e32-24fca4edc562" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/RegisterCustomer"/></con:call></con:operation><con:operation id="50eb9629-7429-4b09-b1f7-e19831b7fc5f" isOneWay="false" action="http://mycompany.com/StorePaymentInfo" name="StorePaymentInfo" bindingOperationName="StorePaymentInfo" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerPaymentMedium" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="624bf02c-fa03-4c52-aca5-59cb6883edd9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gen:CustomerIdentifier>
@@ -308,7 +314,7 @@
          <gen:amount>?</gen:amount>
       </gen:PaymentHeader>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/StorePaymentInfo"/></con:call></con:operation><con:operation id="632a0da6-bf10-4b6f-8850-61abafd74370" isOneWay="false" action="http://mycompany.com/UpdateProfile" name="UpdateProfile" bindingOperationName="UpdateProfile" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerDocument" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c32036cc-3fc5-4047-b3e1-811f5d38fa25" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mycompany.com/StorePaymentInfo"/></con:call></con:operation><con:operation id="5dd6b51d-9bd8-4f19-b298-db58e87effd9" isOneWay="false" action="http://mycompany.com/UpdateProfile" name="UpdateProfile" bindingOperationName="UpdateProfile" type="Request-Response" outputName="AcknowledgementCodeResponse" inputName="CustomerDocument" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="982c0c8f-7e9f-49d6-8c30-47901dc8b57a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/customer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gen="http://www.example.com/rideshare/gen">
    <soapenv:Header/>
    <soapenv:Body>
       <gen:CustomerDocument>

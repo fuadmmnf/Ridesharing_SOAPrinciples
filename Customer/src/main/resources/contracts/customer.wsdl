@@ -28,6 +28,7 @@
     <wsdl:message name="CustomerIdentifier">
         <wsdl:part element="schema:CustomerIdentifier" name="CustomerIdentifier"/>
     </wsdl:message>
+
     <wsdl:message name="PaymentHeader">
         <wsdl:part element="schema:PaymentHeader" name="PaymentHeader"/>
     </wsdl:message>
@@ -131,7 +132,7 @@
 
         <wsdl:operation name="StorePaymentInfo">
             <soap:operation soapAction="http://mycompany.com/StorePaymentInfo"/>
-            <wsdl:input name="PaymentPaymentMedium">
+            <wsdl:input name="CustomerPaymentMedium">
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="AcknowledgementCodeResponse">
