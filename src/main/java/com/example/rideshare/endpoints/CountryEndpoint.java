@@ -1,8 +1,9 @@
 package com.example.rideshare.endpoints;
 
 
-import com.example.rideshare.gen.GetCountryRequest;
-import com.example.rideshare.gen.GetCountryResponse;
+
+import com.example.rideshare.gen.CountryRequest;
+import com.example.rideshare.gen.CountryResponse;
 import com.example.rideshare.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -21,10 +22,10 @@ public class CountryEndpoint {
         this.countryRepository = countryRepository;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CountryRequest")
     @ResponsePayload
-    public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
-        GetCountryResponse response = new GetCountryResponse();
+    public CountryResponse getCountry(@RequestPayload CountryRequest request) {
+        CountryResponse response = new CountryResponse();
         response.setCountry(countryRepository.findCountry(request.getName()));
 
         return response;

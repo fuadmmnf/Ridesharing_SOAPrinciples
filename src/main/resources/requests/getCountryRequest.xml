@@ -2,8 +2,8 @@
                   xmlns:gs="http://www.example.com/rideshare/gen">
     <soapenv:Header/>
     <soapenv:Body>
-        <gs:getCountryRequest>
+        <gs:CountryRequest>
             <gs:name>Spain</gs:name>
-        </gs:getCountryRequest>
+        </gs:CountryRequest>
     </soapenv:Body>
 </soapenv:Envelope>
