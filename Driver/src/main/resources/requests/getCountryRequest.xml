@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://www.example.com/rideshare/gen">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:CountryRequest>
+            <gs:name>Spain</gs:name>
+        </gs:CountryRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
