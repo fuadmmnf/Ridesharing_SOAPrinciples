@@ -44,6 +44,13 @@ public class CustomerRepository {
 //        ph.setAmount("");
 //
 //        return ph;
+        if (!paymentMediums.containsKey(id)) {
+            PaymentHeader paymentHeader = new PaymentHeader();
+            paymentHeader.setMedium("");
+            paymentHeader.setAccountNumber("");
+            paymentHeader.setAmount("");
+            return paymentHeader;
+        }
         return paymentMediums.get(id);
     }
 
