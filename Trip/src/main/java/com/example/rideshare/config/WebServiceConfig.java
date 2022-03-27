@@ -25,7 +25,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
 
-    @Bean(name = "countries")
+    @Bean(name = "trips")
     public Wsdl11Definition defaultWsdl11Definition() {
         SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
         wsdl11Definition.setWsdl(new ClassPathResource("/contracts/trip.wsdl"));

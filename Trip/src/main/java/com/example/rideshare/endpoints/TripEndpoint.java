@@ -39,4 +39,22 @@ public class TripEndpoint {
     public AcknowledgementCodeResponse updateTrip(@RequestPayload UpdateTripRequest updateTripRequest) {
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateTripStateRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse updateTripState(@RequestPayload UpdateTripRequest updateTripRequest) {
+        return this.createAckResponse(AcknowledgementCode.UPDATED);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AdjustTripMetricsRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse adjustTripMetrics(@RequestPayload AdjustTripMetricsRequest adjustTripMetricsRequest) {
+        return this.createAckResponse(AcknowledgementCode.UPDATED);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetTripSummaryRequest")
+    @ResponsePayload
+    public TripHeaderDocument getTripSummary(@RequestPayload GetTripSummaryRequest getTripSummaryRequest) {
+        return new TripHeaderDocument();
+    }
 }
