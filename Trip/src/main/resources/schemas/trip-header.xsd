@@ -5,7 +5,7 @@
     <xs:element name="TripHeaderDocument">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="tripheader" type="tns:TripHeader"/>
+                <xs:element name="tripHeader" type="tns:TripHeader"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

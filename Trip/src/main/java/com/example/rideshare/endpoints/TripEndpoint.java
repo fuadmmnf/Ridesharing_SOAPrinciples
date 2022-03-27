@@ -1,8 +1,6 @@
 package com.example.rideshare.endpoints;
 
 
-
-
 import com.example.rideshare.gen.AcknowledgementCode;
 import com.example.rideshare.gen.AcknowledgementCodeResponse;
 import com.example.rideshare.gen.TripHeaderDocument;
