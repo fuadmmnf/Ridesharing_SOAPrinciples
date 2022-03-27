@@ -10,6 +10,14 @@
         </xs:complexType>
     </xs:element>
 
+
+    <xs:complexType name="TripIdentifier">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
     <xs:complexType name="TripHeader">
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
