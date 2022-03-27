@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
+           targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
+    <xs:include schemaLocation="trip-header.xsd"/>
+    <xs:include schemaLocation="feedback.xsd"/>
+
+    <xs:element name="TripDocument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="trip" type="tns:Trip"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Trip">
+        <xs:sequence>
+            <xs:element name="header" type="tns:TripHeader"/>
+            <xs:element name="source" type="xs:int"/>
+            <xs:element name="destination" type="xs:string"/>
+            <xs:element name="fare" type="xs:double"/>
+            <xs:element name="estTime" type="xs:double"/>
+            <xs:element name="medium" type="xs:string"/>
+            <xs:element name="feedback" type="tns:Feedback"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

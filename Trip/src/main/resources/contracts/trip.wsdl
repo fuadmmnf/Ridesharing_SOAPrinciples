@@ -1,0 +1,55 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.example.com/rideshare/gen"
+                  xmlns:tns="http://www.example.com/rideshare/definitions"
+                  targetNamespace="http://www.example.com/rideshare/definitions">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip-header.xsd"/>
+
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/acknowledgement-code.xsd"/>
+        </xsd:schema>
+
+
+    </wsdl:types>
+
+    <wsdl:message name="TripDocument">
+        <wsdl:part element="schema:TripDocument" name="TripDocument"/>
+    </wsdl:message>
+    <wsdl:message name="TripHeaderDocument">
+        <wsdl:part element="schema:TripHeaderDocument" name="TripHeaderDocument"/>
+    </wsdl:message>
+    <wsdl:message name="AcknowledgementCodeResposne">
+        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResposne"/>
+    </wsdl:message>
+
+    
+    <wsdl:portType name="TripResource">
+        <wsdl:operation name="CreateTrip">
+            <wsdl:input message="tns:CountryRequest" name="CountryRequest"/>
+            <wsdl:output message="tns:CountryResponse" name="CountryResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CountryResourceBinding" type="tns:CountryResource">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Country">
+            <soap:operation soapAction="http://mycompany.com/RequestHoliday"/>
+            <wsdl:input name="CountryRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CountryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CountryResourceService">
+        <wsdl:port binding="tns:CountryResourceBinding" name="CountryResourcePort">
+            <soap:address location="http://localhost:8080/ws/getCountry"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
