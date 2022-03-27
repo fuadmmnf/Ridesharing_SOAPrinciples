@@ -6,7 +6,7 @@
 //
 
 
-package com.example.rideshare.gen;
+package generated;
 
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import com.example.rideshare.gen.Trip;
 
 
 /**
@@ -26,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="trip" type="{http://www.example.com/rideshare/gen}Trip"/&gt;
+ *         &lt;element name="Trip" type="{http://www.example.com/rideshare/gen}Trip"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,11 +40,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "trip"
 })
-@XmlRootElement(name = "TripDocument")
+@XmlRootElement(name = "UpdateTripRequest")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
-public class TripDocument {
+public class UpdateTripRequest {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Trip", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
     protected Trip trip;
 

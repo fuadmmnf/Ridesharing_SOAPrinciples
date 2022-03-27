@@ -6,7 +6,7 @@
 //
 
 
-package com.example.rideshare.gen;
+package generated;
 
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import com.example.rideshare.gen.TripHeader;
 
 
 /**
@@ -26,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="trip" type="{http://www.example.com/rideshare/gen}Trip"/&gt;
+ *         &lt;element name="TripHeader" type="{http://www.example.com/rideshare/gen}TripHeader"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,40 +38,40 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "trip"
+    "tripHeader"
 })
-@XmlRootElement(name = "TripDocument")
+@XmlRootElement(name = "UpdateTripStateRequest")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
-public class TripDocument {
+public class UpdateTripStateRequest {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "TripHeader", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
-    protected Trip trip;
+    protected TripHeader tripHeader;
 
     /**
-     * Gets the value of the trip property.
+     * Gets the value of the tripHeader property.
      * 
      * @return
      *     possible object is
-     *     {@link Trip }
+     *     {@link TripHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
-    public Trip getTrip() {
-        return trip;
+    public TripHeader getTripHeader() {
+        return tripHeader;
     }
 
     /**
-     * Sets the value of the trip property.
+     * Sets the value of the tripHeader property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Trip }
+     *     {@link TripHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-27T06:12:31+06:00", comments = "JAXB RI v2.2.11")
-    public void setTrip(Trip value) {
-        this.trip = value;
+    public void setTripHeader(TripHeader value) {
+        this.tripHeader = value;
     }
 
 }

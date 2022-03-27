@@ -78,7 +78,7 @@
         <wsdl:part element="schema:TripHeaderDocument" name="TripHeaderDocument"/>
     </wsdl:message>
     <wsdl:message name="AcknowledgementCodeResponse">
-        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResposne"/>
+        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
     </wsdl:message>
 
 
@@ -114,7 +114,7 @@
             <wsdl:input name="CreateTripRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="AcknowledgementCodeResposne">
+            <wsdl:output name="AcknowledgementCodeResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
@@ -123,7 +123,7 @@
             <wsdl:input name="UpdateTripRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="AcknowledgementCodeResposne">
+            <wsdl:output name="AcknowledgementCodeResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
@@ -132,7 +132,7 @@
             <wsdl:input name="UpdateTripStateRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="AcknowledgementCodeResposne">
+            <wsdl:output name="AcknowledgementCodeResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
@@ -141,7 +141,7 @@
             <wsdl:input name="AdjustTripMetricsRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="AcknowledgementCodeResposne">
+            <wsdl:output name="AcknowledgementCodeResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

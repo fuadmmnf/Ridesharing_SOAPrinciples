@@ -3,8 +3,14 @@ package com.example.rideshare.endpoints;
 
 
 
-import com.example.rideshare.gen.*;
+import com.example.rideshare.gen.AcknowledgementCode;
+import com.example.rideshare.gen.AcknowledgementCodeResponse;
+import com.example.rideshare.gen.TripHeaderDocument;
 import com.example.rideshare.repositories.TripRepository;
+import generated.AdjustTripMetricsRequest;
+import generated.CreateTripRequest;
+import generated.GetTripSummaryRequest;
+import generated.UpdateTripRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;

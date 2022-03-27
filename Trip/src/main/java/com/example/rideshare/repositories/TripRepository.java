@@ -1,8 +1,7 @@
 package com.example.rideshare.repositories;
 
 
-//import com.example.rideshare.gen.Country;
-//import com.example.rideshare.gen.Currency;
+
 import org.springframework.stereotype.Component;
 
 @Component
