@@ -15,6 +15,9 @@
             <xsd:import namespace="http://www.example.com/rideshare/gen"
                         schemaLocation="../schemas/acknowledgement-code.xsd"/>
 
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/manage-ride-sharing.xsd"/>
+
             <xsd:element name="RegisterCustomerRequest">
                 <xsd:complexType>
                     <xsd:sequence>

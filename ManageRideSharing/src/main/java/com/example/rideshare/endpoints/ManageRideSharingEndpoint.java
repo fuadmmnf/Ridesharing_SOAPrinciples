@@ -4,6 +4,7 @@ package com.example.rideshare.endpoints;
 import com.example.rideshare.clients.TripClient;
 import com.example.rideshare.gen.AcknowledgementCode;
 import com.example.rideshare.gen.AcknowledgementCodeResponse;
+import com.example.rideshare.gen.RideSharingTrip;
 import com.example.rideshare.repositories.ManageRideSharingRepository;
 import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +32,26 @@ public class ManageRideSharingEndpoint {
         return codeResponse;
     }
 
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateRideRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse createRideRequest(@RequestPayload CreateRideRequest request) {
+        tripClient.createTrip(request.getTripHeader()); // header contains string hash as ID so, id can be  uniquely calculated without creating
+
+        RideSharingTrip rideSharingTrip = new RideSharingTrip();
+        rideSharingTrip.setTrip(request.getTripHeader().getTripIdentifier());
+        rideSharingTrip.setCustomer(request.getCustomerIdentifier());
+        rideSharingTrip.setDriver("");
+        manageRideSharingRepository.createRideSharingTrip(rideSharingTrip);
+        return this.createAckResponse(AcknowledgementCode.CREATED);
+    }
+
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetRideOptionsRequest")
     @ResponsePayload
     public GetRideOptionsResponse getRideOptions(@RequestPayload GetRideOptionsRequest request) {
         return new GetRideOptionsResponse();
     }
 
-
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateRideRequest")
-    @ResponsePayload
-    public AcknowledgementCodeResponse createRideRequest(@RequestPayload CreateRideRequest request) {
-
-        return this.createAckResponse(AcknowledgementCode.CREATED);
-    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateRideStateRequest")
     @ResponsePayload

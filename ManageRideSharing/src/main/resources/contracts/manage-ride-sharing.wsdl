@@ -42,6 +42,7 @@
             <xsd:element name="CreateRideRequest">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element name="CustomerIdentifier" type="schema:CustomerIdentifier"/>
                         <xsd:element name="TripHeader" type="schema:TripHeader"/>
                     </xsd:sequence>
                 </xsd:complexType>

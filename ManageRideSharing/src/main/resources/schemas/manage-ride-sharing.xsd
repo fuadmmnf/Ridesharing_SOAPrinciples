@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
+           targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
+
+    <xs:include schemaLocation="customer.xsd"/>
+    <xs:include schemaLocation="trip-header.xsd"/>
+    <xs:include schemaLocation="payment-header.xsd"/>
+
+
+    <xs:element name="RideSharingTripDocument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RideSharingTrip" type="tns:RideSharingTrip"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="RideSharingTrip">
+        <xs:sequence>
+            <xs:element name="trip" type="tns:TripIdentifier"/>
+            <xs:element name="customer" type="tns:CustomerIdentifier"/>
+            <xs:element name="driver" type="xs:string"/>
+            <xs:element name="payment" type="tns:PaymentIdentifier"/>
+            <!--            driver identifier will be mapped, not done since driver service not done-->
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

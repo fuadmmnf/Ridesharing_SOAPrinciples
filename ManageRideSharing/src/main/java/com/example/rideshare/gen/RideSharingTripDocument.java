@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="customer" type="{http://www.example.com/rideshare/gen}Customer"/&gt;
+ *         &lt;element name="RideSharingTrip" type="{http://www.example.com/rideshare/gen}RideSharingTrip"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,40 +37,40 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "customer"
+    "rideSharingTrip"
 })
-@XmlRootElement(name = "CustomerDocument")
+@XmlRootElement(name = "RideSharingTripDocument")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:13:10+06:00", comments = "JAXB RI v2.2.11")
-public class CustomerDocument {
+public class RideSharingTripDocument {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "RideSharingTrip", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:13:10+06:00", comments = "JAXB RI v2.2.11")
-    protected Customer customer;
+    protected RideSharingTrip rideSharingTrip;
 
     /**
-     * Gets the value of the customer property.
+     * Gets the value of the rideSharingTrip property.
      * 
      * @return
      *     possible object is
-     *     {@link Customer }
+     *     {@link RideSharingTrip }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:13:10+06:00", comments = "JAXB RI v2.2.11")
-    public Customer getCustomer() {
-        return customer;
+    public RideSharingTrip getRideSharingTrip() {
+        return rideSharingTrip;
     }
 
     /**
-     * Sets the value of the customer property.
+     * Sets the value of the rideSharingTrip property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Customer }
+     *     {@link RideSharingTrip }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:13:10+06:00", comments = "JAXB RI v2.2.11")
-    public void setCustomer(Customer value) {
-        this.customer = value;
+    public void setRideSharingTrip(RideSharingTrip value) {
+        this.rideSharingTrip = value;
     }
 
 }
