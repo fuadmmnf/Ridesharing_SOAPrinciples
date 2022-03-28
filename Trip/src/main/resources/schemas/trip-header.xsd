@@ -21,8 +21,8 @@
     <xs:complexType name="TripHeader">
         <xs:sequence>
             <xs:element name="id" type="xs:string"/>
-            <xs:element name="customer" type="xs:string"/>
-            <xs:element name="driver" type="xs:string"/>
+<!--            <xs:element name="customer" type="xs:string"/>-->
+<!--            <xs:element name="driver" type="xs:string"/>-->
             <xs:element name="status" type="tns:Status"/>
         </xs:sequence>
     </xs:complexType>

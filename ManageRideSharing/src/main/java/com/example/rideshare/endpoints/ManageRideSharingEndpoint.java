@@ -37,6 +37,7 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateRideRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse createRideRequest(@RequestPayload CreateRideRequest request) {
+
         return this.createAckResponse(AcknowledgementCode.CREATED);
     }
 
