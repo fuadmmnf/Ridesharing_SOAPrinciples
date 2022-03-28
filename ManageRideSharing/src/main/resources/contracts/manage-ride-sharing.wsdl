@@ -1,0 +1,161 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.example.com/rideshare/gen"
+                  xmlns:tns="http://www.example.com/rideshare/definitions"
+                  targetNamespace="http://www.example.com/rideshare/definitions">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/acknowledgement-code.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/feedback.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/customer.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/payment-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/place-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/route-header.xsd"/>
+
+            <xsd:element name="GetRideOptionsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="RouteHeader" type="schema:RouteHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="GetRideOptionsResponse">
+                <xsd:complexType>
+                    <xsd:sequence maxOccurs="unbounded">
+                        <xsd:element name="medium" type="xsd:string"/>
+                        <xsd:element name="fare" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="CreateRideRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripHeader" type="schema:TripHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="UpdateRideStateRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripHeader" type="schema:TripHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="StoreFeedbackRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripIdentifier" type="schema:TripIdentifier"/>
+                        <xsd:element name="Feedback" type="schema:Feedback"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="GetRideOptionsRequest">
+        <wsdl:part element="schema:GetRideOptionsRequest" name="GetRideOptionsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetRideOptionsResponse">
+        <wsdl:part element="schema:GetRideOptionsResponse" name="GetRideOptionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="CreateRideRequest">
+        <wsdl:part element="schema:CreateRideRequest" name="CreateRideRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="UpdateRideStateRequest">
+        <wsdl:part element="schema:UpdateRideStateRequest" name="UpdateRideStateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="StoreFeedbackRequest">
+        <wsdl:part element="schema:StoreFeedbackRequest" name="StoreFeedbackRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="AcknowledgementCodeResponse">
+        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+    </wsdl:message>
+    
+    
+    <wsdl:portType name="ManageRideSharingResource">
+        <wsdl:operation name="GetRideOptions">
+            <wsdl:input message="tns:GetRideOptionsRequest" name="GetRideOptionsRequest"/>
+            <wsdl:output message="tns:GetRideOptionsResponse" name="GetRideOptionsResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="CreateRideRequest">
+            <wsdl:input message="tns:CreateRideRequest" name="CreateRideRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="UpdateRideState">
+            <wsdl:input message="tns:UpdateRideStateRequest" name="UpdateRideStateRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="StoreFeedback">
+            <wsdl:input message="tns:StoreFeedbackRequest" name="StoreFeedbackRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="ManageRideSharingResourceBinding" type="tns:ManageRideSharingResource">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetRideOptions">
+            <soap:operation soapAction="http://mycompany.com/GetRideOptions"/>
+            <wsdl:input name="GetRideOptionsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetRideOptionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="CreateRideRequest">
+            <soap:operation soapAction="http://mycompany.com/CreateRideRequest"/>
+            <wsdl:input name="CreateRideRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="UpdateRideState">
+            <soap:operation soapAction="http://mycompany.com/GetRideOptions"/>
+            <wsdl:input name="UpdateRideStateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="StoreFeedback">
+            <soap:operation soapAction="http://mycompany.com/GetRideOptions"/>
+            <wsdl:input name="StoreFeedbackRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ManageRideSharingResourceService">
+        <wsdl:port binding="tns:ManageRideSharingResourceBinding" name="ManageRideSharingResourcePort">
+            <soap:address location="http://localhost:8080/ws/manageRideSharing"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
