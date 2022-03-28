@@ -28,7 +28,7 @@
 
     <xs:complexType name="Customer">
         <xs:sequence>
-            <xs:element name="id" type="tns:CustomerIdentifier"/>
+            <xs:element name="CustomerIdentifier" type="tns:CustomerIdentifier"/>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="mobile" type="xs:string"/>
             <xs:element name="address" type="xs:string"/>

@@ -1,0 +1,164 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.example.com/rideshare/gen"
+                  xmlns:tns="http://www.example.com/rideshare/definitions"
+                  targetNamespace="http://www.example.com/rideshare/definitions">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/trip-header.xsd"/>
+
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/acknowledgement-code.xsd"/>
+
+            <xsd:element name="CreateTripRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Trip" type="schema:Trip"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="UpdateTripRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Trip" type="schema:Trip"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="UpdateTripStateRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripHeader" type="schema:TripHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="AdjustTripMetricsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Trip" type="schema:Trip"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="GetTripSummaryRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripIdentifier" type="schema:TripIdentifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+        </xsd:schema>
+
+
+    </wsdl:types>
+
+    <wsdl:message name="CreateTripRequest">
+        <wsdl:part element="schema:CreateTripRequest" name="CreateTripRequest"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateTripRequest">
+        <wsdl:part element="schema:UpdateTripRequest" name="UpdateTripRequest"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateTripStateRequest">
+        <wsdl:part element="schema:UpdateTripStateRequest" name="UpdateTripStateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="AdjustTripMetricsRequest">
+        <wsdl:part element="schema:AdjustTripMetricsRequest" name="AdjustTripMetricsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetTripSummaryRequest">
+        <wsdl:part element="schema:GetTripSummaryRequest" name="GetTripSummaryRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="TripHeaderDocument">
+        <wsdl:part element="schema:TripHeaderDocument" name="TripHeaderDocument"/>
+    </wsdl:message>
+    <wsdl:message name="AcknowledgementCodeResponse">
+        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+    </wsdl:message>
+
+
+    <wsdl:portType name="TripResource">
+        <wsdl:operation name="CreateTrip">
+            <wsdl:input message="tns:CreateTripRequest" name="CreateTripRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="UpdateTrip">
+            <wsdl:input message="tns:UpdateTripRequest" name="UpdateTripRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateTripState">
+            <wsdl:input message="tns:UpdateTripStateRequest" name="UpdateTripStateRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="AdjustTripMetrics">
+            <wsdl:input message="tns:AdjustTripMetricsRequest" name="AdjustTripMetricsRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTripSummary">
+            <wsdl:input message="tns:GetTripSummaryRequest" name="GetTripSummaryRequest"/>
+            <wsdl:output message="tns:TripHeaderDocument" name="TripHeaderDocument"/>
+        </wsdl:operation>
+
+    </wsdl:portType>
+    <wsdl:binding name="TripResourceBinding" type="tns:TripResource">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CreateTrip">
+            <soap:operation soapAction="http://mycompany.com/CreateTrip"/>
+            <wsdl:input name="CreateTripRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateTrip">
+            <soap:operation soapAction="http://mycompany.com/UpdateTrip"/>
+            <wsdl:input name="UpdateTripRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateTripState">
+            <soap:operation soapAction="http://mycompany.com/UpdateTrip"/>
+            <wsdl:input name="UpdateTripStateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AdjustTripMetrics">
+            <soap:operation soapAction="http://mycompany.com/UpdateTrip"/>
+            <wsdl:input name="AdjustTripMetricsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTripSummary">
+            <soap:operation soapAction="http://mycompany.com/GetTripSummary"/>
+            <wsdl:input name="GetTripSummaryRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TripHeaderDocument">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="TripResourceService">
+        <wsdl:port binding="tns:TripResourceBinding" name="TripResourcePort">
+            <soap:address location="http://localhost:8080/ws/trip"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

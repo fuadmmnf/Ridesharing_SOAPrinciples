@@ -1,6 +1,7 @@
 package com.example.rideshare.endpoints;
 
 
+import com.example.rideshare.clients.TripClient;
 import com.example.rideshare.gen.AcknowledgementCode;
 import com.example.rideshare.gen.AcknowledgementCodeResponse;
 import com.example.rideshare.repositories.ManageRideSharingRepository;
@@ -16,10 +17,12 @@ public class ManageRideSharingEndpoint {
     private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
 
     private ManageRideSharingRepository manageRideSharingRepository;
+    private TripClient tripClient;
 
     @Autowired
-    public ManageRideSharingEndpoint(ManageRideSharingRepository manageRideSharingRepository) {
+    public ManageRideSharingEndpoint(ManageRideSharingRepository manageRideSharingRepository, TripClient tripClient) {
         this.manageRideSharingRepository = manageRideSharingRepository;
+        this.tripClient = tripClient;
     }
 
     private AcknowledgementCodeResponse createAckResponse(AcknowledgementCode code) {

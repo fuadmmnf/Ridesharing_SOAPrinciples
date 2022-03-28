@@ -1,7 +1,8 @@
 package com.example.rideshare.repositories;
 
 import com.example.rideshare.gen.Customer;
-import com.example.rideshare.gen.CustomerRequest;
+//import com.example.rideshare.gen.CustomerRequest;
+import com.example.rideshare.gen.CustomerIdentifier;
 import com.example.rideshare.gen.PaymentHeader;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,9 @@ public class CustomerRepository {
     @PostConstruct
     public void initData() {
         Customer customer = new Customer();
-        customer.setId("1");
+        CustomerIdentifier ci = new CustomerIdentifier();
+        ci.setId("1");
+        customer.setCustomerIdentifier(ci);
         customer.setName("Fuad");
         customer.setAddress("Lalbagh");
         customer.setMobile("0193451124");
@@ -25,12 +28,14 @@ public class CustomerRepository {
     }
 
     public void createCustomer(Customer customer) {
-        customer.setId("" + customers.size() + 1);
-        customers.put(customer.getId(), customer);
+        CustomerIdentifier ci = new CustomerIdentifier();
+        ci.setId("" + customers.size() + 1);
+        customer.setCustomerIdentifier(ci);
+        customers.put(customer.getCustomerIdentifier().getId(), customer);
     }
 
     public void updateCustomer(Customer customer) {
-        customers.replace(customer.getId(), customer);
+        customers.replace(customer.getCustomerIdentifier().getId(), customer);
     }
 
     public void deleteCustomer(String id) {
