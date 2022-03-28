@@ -47,29 +47,24 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.13.2</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
                         <goals>
-                            <goal>xjc</goal>
+                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <schemaDirectory>${project.basedir}/src/main/resources/schemas/</schemaDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-                    <clearOutputDir>false</clearOutputDir>
+                    <schemaDirectory>${project.basedir}/src/main/resources/contracts</schemaDirectory>
+                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                    <markGenerated>true</markGenerated>
+                    <schemaIncludes>
+                        <include>*.wsdl</include>
+                    </schemaIncludes>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.activation</groupId>
-                        <artifactId>activation</artifactId>
-                        <version>1.1.1</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>

@@ -2,13 +2,27 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
            targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
 
-    <xs:element name="PaymentHeader">
+
+    <xs:element name="PaymentHeaderDocument">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="medium" type="xs:string"/>
-                <xs:element name="account_number" type="xs:string"/>
-                <xs:element name="amount" type="xs:string"/>
+                <xs:element name="PaymentHeader" type="tns:PaymentHeader"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="PaymentIdentifier">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PaymentHeader">
+        <xs:sequence>
+            <xs:element name="id" type="tns:PaymentIdentifier"/>
+            <xs:element name="medium" type="xs:string"/>
+            <xs:element name="account_number" type="xs:string"/>
+            <xs:element name="amount" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
