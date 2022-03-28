@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
+           targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
+
+    <xs:element name="TripHeaderDocument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tripHeader" type="tns:TripHeader"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="TripIdentifier">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="TripHeader">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="customer" type="xs:string"/>
+            <xs:element name="driver" type="xs:string"/>
+            <xs:element name="status" type="tns:Status"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="Status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="REQUESTED"/>
+            <xs:enumeration value="ACTIVE"/>
+            <xs:enumeration value="END"/>
+            <xs:enumeration value="FINISHED"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
