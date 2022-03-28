@@ -12,21 +12,21 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for PaymentReferer complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="PaymentReferer"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="DateRange" type="{http://www.example.com/rideshare/gen}DateRange"/&gt;
+ *         &lt;element name="model_type" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="model_id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,41 +36,70 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "dateRange"
+@XmlType(name = "PaymentReferer", propOrder = {
+    "modelType",
+    "modelId"
 })
-@XmlRootElement(name = "DateRangeDocument")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
-public class DateRangeDocument {
+public class PaymentReferer {
 
-    @XmlElement(name = "DateRange", required = true)
+    @XmlElement(name = "model_type", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
-    protected DateRange dateRange;
+    protected String modelType;
+    @XmlElement(name = "model_id", required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
+    protected String modelId;
 
     /**
-     * Gets the value of the dateRange property.
+     * Gets the value of the modelType property.
      * 
      * @return
      *     possible object is
-     *     {@link DateRange }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
-    public DateRange getDateRange() {
-        return dateRange;
+    public String getModelType() {
+        return modelType;
     }
 
     /**
-     * Sets the value of the dateRange property.
+     * Sets the value of the modelType property.
      * 
      * @param value
      *     allowed object is
-     *     {@link DateRange }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
-    public void setDateRange(DateRange value) {
-        this.dateRange = value;
+    public void setModelType(String value) {
+        this.modelType = value;
+    }
+
+    /**
+     * Gets the value of the modelId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
+    public String getModelId() {
+        return modelId;
+    }
+
+    /**
+     * Sets the value of the modelId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-28T09:44:46+06:00", comments = "JAXB RI v2.2.11")
+    public void setModelId(String value) {
+        this.modelId = value;
     }
 
 }
