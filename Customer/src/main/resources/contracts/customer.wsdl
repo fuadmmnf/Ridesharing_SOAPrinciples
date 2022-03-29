@@ -60,6 +60,7 @@
             <xsd:element name="StorePaymentInfoRequest">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element name="CustomerIdentifier" type="schema:CustomerIdentifier"/>
                         <xsd:element name="PaymentHeader" type="schema:PaymentHeader"/>
                     </xsd:sequence>
                 </xsd:complexType>

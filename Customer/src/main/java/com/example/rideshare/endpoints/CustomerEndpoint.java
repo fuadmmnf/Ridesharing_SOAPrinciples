@@ -3,6 +3,7 @@ package com.example.rideshare.endpoints;
 
 import com.example.rideshare.gen.*;
 import com.example.rideshare.repositories.CustomerRepository;
+import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -26,54 +27,54 @@ public class CustomerEndpoint {
         return codeResponse;
     }
 
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerRequest")
-//    @ResponsePayload
-//    public AcknowledgementCodeResponse registerCustomer(@RequestPayload CustomerRequest customerRequest) {
-//        Customer c = new Customer();
-//        c.setName(customerRequest.getName());
-//        c.setMobile(customerRequest.getMobile());
-//        c.setAddress(customerRequest.getAddress());
-//        customerRepository.createCustomer(c);
-//
-//        return this.createAckResponse(AcknowledgementCode.CREATED);
-//    }
-//
-//
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerDocument")
-//    @ResponsePayload
-//    public AcknowledgementCodeResponse updateProfile(@RequestPayload CustomerDocument customerDocument) {
-//        customerRepository.updateCustomer(customerDocument.getCustomer());
-//
-//        return this.createAckResponse(AcknowledgementCode.UPDATED);
-//    }
-//
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerIdentifier")
-//    @ResponsePayload
-//    public AcknowledgementCodeResponse banCustomer(@RequestPayload CustomerIdentifier customerIdentifier) {
-//        customerRepository.deleteCustomer(customerIdentifier.getId());
-//        return this.createAckResponse(AcknowledgementCode.DELETED);
-//    }
-//
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerIdentifier")
-//    @ResponsePayload
-//    public CustomerDocument getDetails(@RequestPayload CustomerIdentifier customerIdentifier) {
-//        Customer c = customerRepository.findCustomer(customerIdentifier.getId());
-//        CustomerDocument cd = new CustomerDocument();
-//        cd.setCustomer(c);
-//        return cd;
-//    }
-//
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerIdentifier")
-//    @ResponsePayload
-//    public PaymentHeader getPaymentHeader(@RequestPayload CustomerIdentifier customerIdentifier) {
-//        return customerRepository.getCustomerPaymentHeader(customerIdentifier.getId());
-//    }
-//
-//
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CustomerPaymentMedium")
-//    @ResponsePayload
-//    public AcknowledgementCodeResponse storePaymentInfo(@RequestPayload CustomerPaymentMedium customerPaymentMedium) {
-//        customerRepository.setCustomerPaymentHeader(customerPaymentMedium.getCustomerIdentifier().getId(), customerPaymentMedium.getPaymentHeader());
-//        return createAckResponse(AcknowledgementCode.UPDATED);
-//    }
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "RegisterCustomerRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse registerCustomer(@RequestPayload RegisterCustomerRequest registerCustomerRequest) {
+        Customer c = new Customer();
+        c.setName(registerCustomerRequest.getName());
+        c.setMobile(registerCustomerRequest.getMobile());
+        c.setAddress(registerCustomerRequest.getAddress());
+        customerRepository.createCustomer(c);
+
+        return this.createAckResponse(AcknowledgementCode.CREATED);
+    }
+
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateProfileRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse updateProfile(@RequestPayload UpdateProfileRequest updateProfileRequest) {
+        customerRepository.updateCustomer(updateProfileRequest.getCustomer());
+
+        return this.createAckResponse(AcknowledgementCode.UPDATED);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "BanCustomerRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse banCustomer(@RequestPayload BanCustomerRequest banCustomerRequest) {
+        customerRepository.deleteCustomer(banCustomerRequest.getCustomerIdentifier().getId());
+        return this.createAckResponse(AcknowledgementCode.DELETED);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetDetailsRequest")
+    @ResponsePayload
+    public CustomerDocument getDetails(@RequestPayload GetDetailsRequest getDetailsRequest) {
+        Customer c = customerRepository.findCustomer(getDetailsRequest.getCustomerIdentifier().getId());
+        CustomerDocument cd = new CustomerDocument();
+        cd.setCustomer(c);
+        return cd;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetPaymentMediumRequest")
+    @ResponsePayload
+    public PaymentHeader getPaymentMedium(@RequestPayload GetPaymentMediumRequest getPaymentMediumRequest) {
+        return customerRepository.getCustomerPaymentHeader(getPaymentMediumRequest.getCustomerIdentifier().getId());
+    }
+
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "StorePaymentInfoRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse storePaymentInfo(@RequestPayload StorePaymentInfoRequest storePaymentInfoRequest) {
+        customerRepository.setCustomerPaymentHeader(storePaymentInfoRequest.getCustomerIdentifier().getId(), storePaymentInfoRequest.getPaymentHeader());
+        return createAckResponse(AcknowledgementCode.UPDATED);
+    }
 }
