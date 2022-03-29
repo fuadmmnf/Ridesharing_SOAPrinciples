@@ -37,7 +37,8 @@ public class ManageRideSharingEndpoint {
     @ResponsePayload
     public GetRideOptionsResponse getRideOptions(@RequestPayload GetRideOptionsRequest getRideOptionsRequest) {
         RouteHeader routeHeader = getRideOptionsRequest.getRouteHeader();
-        //calculate billing based on routeHeader attributes (source, destination, distance) as business specific task
+        //calculate billing based on routeHeader attributes (source, destination, distance) as business specific task,
+        // the route header can be obtained from consuming another task service concentrated on route calculation
         GetRideOptionsResponse getRideOptionsResponse = new GetRideOptionsResponse();
 
         RideMode rideMode1 = new RideMode();
