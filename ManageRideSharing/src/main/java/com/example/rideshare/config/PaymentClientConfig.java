@@ -9,12 +9,12 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @Configuration
 public class PaymentClientConfig {
 
-        @Bean
-        public Jaxb2Marshaller marshaller() {
-            Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            marshaller.setContextPath("com.example.rideshare.gen");
-            return marshaller;
-        }
+//        @Bean
+//        public Jaxb2Marshaller marshaller() {
+//            Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+//            marshaller.setContextPath("com.example.rideshare.gen");
+//            return marshaller;
+//        }
         @Bean
         public PaymentClient paymentClient(Jaxb2Marshaller marshaller) {
             PaymentClient client = new PaymentClient();
