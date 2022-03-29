@@ -32,9 +32,8 @@
 
             <xsd:element name="GetRideOptionsResponse">
                 <xsd:complexType>
-                    <xsd:sequence maxOccurs="unbounded">
-                        <xsd:element name="medium" type="xsd:string"/>
-                        <xsd:element name="fare" type="xsd:double"/>
+                    <xsd:sequence >
+                        <xsd:element name="RideMode" type="schema:RideMode" maxOccurs="unbounded"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -156,7 +155,7 @@
     </wsdl:binding>
     <wsdl:service name="ManageRideSharingResourceService">
         <wsdl:port binding="tns:ManageRideSharingResourceBinding" name="ManageRideSharingResourcePort">
-            <soap:address location="http://localhost:8080/ws/manageRideSharing"/>
+            <soap:address location="http://localhost:8101/ws/manageRideSharing"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

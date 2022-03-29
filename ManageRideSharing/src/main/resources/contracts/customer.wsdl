@@ -206,7 +206,7 @@
 
     <wsdl:service name="CustomerResourceService">
         <wsdl:port binding="tns:CustomerResourceBinding" name="CustomerResourcePort">
-            <soap:address location="http://localhost:8080/ws/customer"/>
+            <soap:address location="http://localhost:8202/ws/customer"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

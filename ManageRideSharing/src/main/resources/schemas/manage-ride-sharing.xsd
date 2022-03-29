@@ -16,15 +16,22 @@
     </xs:element>
 
 
+
     <xs:complexType name="RideSharingTrip">
         <xs:sequence>
-            <xs:element name="trip" type="tns:TripIdentifier"/>
-            <xs:element name="customer" type="tns:CustomerIdentifier"/>
+            <xs:element name="TripIdentifier" type="tns:TripIdentifier"/>
+            <xs:element name="RideMode" type="tns:RideMode"/>
+            <xs:element name="CustomerIdentifier" type="tns:CustomerIdentifier"/>
             <xs:element name="driver" type="xs:string"/>
-            <xs:element name="payment" type="tns:PaymentIdentifier"/>
+            <xs:element name="PaymentIdentifier" type="tns:PaymentIdentifier"/>
             <!--            driver identifier will be mapped, not done since driver service not done-->
         </xs:sequence>
     </xs:complexType>
 
-
+    <xs:complexType name="RideMode">
+        <xs:sequence>
+            <xs:element name="medium" type="xs:string"/>
+            <xs:element name="fare" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

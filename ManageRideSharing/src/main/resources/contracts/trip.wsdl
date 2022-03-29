@@ -158,7 +158,7 @@
     </wsdl:binding>
     <wsdl:service name="TripResourceService">
         <wsdl:port binding="tns:TripResourceBinding" name="TripResourcePort">
-            <soap:address location="http://localhost:8080/ws/trip"/>
+            <soap:address location="http://localhost:8201/ws/trip"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

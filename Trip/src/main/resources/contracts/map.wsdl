@@ -14,20 +14,57 @@
             <xsd:import namespace="http://www.example.com/rideshare/gen"
                         schemaLocation="../schemas/route.xsd"/>
 
+            <xsd:element name="CalculateRouteRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="RouteHeader" type="schema:RouteHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
 
+            <xsd:element name="CalculateCongessionRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="RouteHeader" type="schema:RouteHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="CalculateCongessionResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="congession" type="xsd:double"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SearchPlaceRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="PlaceHeader" type="schema:PlaceHeader"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
     </wsdl:types>
 
-
-    <wsdl:message name="RouteHeaderDocument">
-        <wsdl:part element="schema:RouteHeaderDocument" name="RouteHeaderDocument"/>
+    <wsdl:message name="CalculateRouteRequest">
+        <wsdl:part element="schema:CalculateRouteRequest" name="CalculateRouteRequest"/>
     </wsdl:message>
 
+    <wsdl:message name="CalculateCongessionRequest">
+        <wsdl:part element="schema:CalculateCongessionRequest" name="CalculateCongessionRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="CalculateCongessionResponse">
+        <wsdl:part element="schema:CalculateCongessionResponse" name="CalculateCongessionResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="SearchPlaceRequest">
+        <wsdl:part element="schema:SearchPlaceRequest" name="SearchPlaceRequest"/>
+    </wsdl:message>
     <wsdl:message name="RouteDocument">
         <wsdl:part element="schema:RouteDocument" name="RouteDocument"/>
-    </wsdl:message>
-    <wsdl:message name="PlaceHeaderDocument">
-        <wsdl:part element="schema:PlaceHeaderDocument" name="PlaceHeaderDocument"/>
     </wsdl:message>
     <wsdl:message name="PlaceDocument">
         <wsdl:part element="schema:PlaceDocument" name="PlaceDocument"/>
@@ -35,11 +72,16 @@
 
     <wsdl:portType name="MapResource">
         <wsdl:operation name="CalculateRoute">
-            <wsdl:input message="tns:RouteHeaderDocument" name="RouteHeaderDocument"/>
+            <wsdl:input message="tns:CalculateRouteRequest" name="CalculateRouteRequest"/>
             <wsdl:output message="tns:RouteDocument" name="RouteDocument"/>
         </wsdl:operation>
+        <wsdl:operation name="CalculateCongession">
+            <wsdl:input message="tns:CalculateCongessionRequest" name="CalculateCongessionRequest"/>
+            <wsdl:output message="tns:CalculateCongessionResponse" name="CalculateCongessionResponse"/>
+        </wsdl:operation>
+
         <wsdl:operation name="SearchPlace">
-            <wsdl:input message="tns:PlaceHeaderDocument" name="SearchPlaceRequest"/>
+            <wsdl:input message="tns:SearchPlaceRequest" name="SearchPlaceRequest"/>
             <wsdl:output message="tns:PlaceDocument" name="PlaceDocument"/>
         </wsdl:operation>
     </wsdl:portType>
@@ -57,6 +99,16 @@
             </wsdl:output>
         </wsdl:operation>
 
+        <wsdl:operation name="CalculateCongession">
+            <soap:operation soapAction="http://mycompany.com/CalculateRoute"/>
+            <wsdl:input name="CalculateCongessionRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CalculateCongessionResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
         <wsdl:operation name="SearchPlace">
             <soap:operation soapAction="http://mycompany.com/SearchPlace"/>
             <wsdl:input name="SearchPlaceRequest">
@@ -69,7 +121,7 @@
     </wsdl:binding>
     <wsdl:service name="MapResourceService">
         <wsdl:port binding="tns:MapResourceBinding" name="MapResourcePort">
-            <soap:address location="http://localhost:8080/ws/map"/>
+            <soap:address location="http://localhost:8301/ws/map"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

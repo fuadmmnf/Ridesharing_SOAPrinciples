@@ -6,12 +6,11 @@
 //
 
 
-package com.example.rideshare.gen;
+package generated;
 
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -26,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="RouteHeader" type="{http://www.example.com/rideshare/gen}RouteHeader"/&gt;
+ *         &lt;element name="congession" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,40 +36,31 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "routeHeader"
+    "congession"
 })
-@XmlRootElement(name = "RouteHeaderDocument")
+@XmlRootElement(name = "CalculateCongessionResponse")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:11:58+06:00", comments = "JAXB RI v2.2.11")
-public class RouteHeaderDocument {
+public class CalculateCongessionResponse {
 
-    @XmlElement(name = "RouteHeader", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:11:58+06:00", comments = "JAXB RI v2.2.11")
-    protected RouteHeader routeHeader;
+    protected double congession;
 
     /**
-     * Gets the value of the routeHeader property.
+     * Gets the value of the congession property.
      * 
-     * @return
-     *     possible object is
-     *     {@link RouteHeader }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:11:58+06:00", comments = "JAXB RI v2.2.11")
-    public RouteHeader getRouteHeader() {
-        return routeHeader;
+    public double getCongession() {
+        return congession;
     }
 
     /**
-     * Sets the value of the routeHeader property.
+     * Sets the value of the congession property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link RouteHeader }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:11:58+06:00", comments = "JAXB RI v2.2.11")
-    public void setRouteHeader(RouteHeader value) {
-        this.routeHeader = value;
+    public void setCongession(double value) {
+        this.congession = value;
     }
 
 }

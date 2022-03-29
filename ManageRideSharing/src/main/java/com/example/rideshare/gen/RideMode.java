@@ -13,19 +13,21 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.Collection;
 
 
 /**
- * <p>Java class for CustomerIdentifier complex type.
+ * <p>Java class for RideMode complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CustomerIdentifier"&gt;
+ * &lt;complexType name="RideMode"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="medium" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="fare" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,18 +37,21 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CustomerIdentifier", propOrder = {
-    "id"
+@XmlType(name = "RideMode", propOrder = {
+    "medium",
+    "fare"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
-public class CustomerIdentifier {
+public class RideMode {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
-    protected String id;
+    protected String medium;
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
+    protected double fare;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the medium property.
      * 
      * @return
      *     possible object is
@@ -54,12 +59,12 @@ public class CustomerIdentifier {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
-    public String getId() {
-        return id;
+    public String getMedium() {
+        return medium;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the medium property.
      * 
      * @param value
      *     allowed object is
@@ -67,8 +72,26 @@ public class CustomerIdentifier {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
-    public void setId(String value) {
-        this.id = value;
+    public void setMedium(String value) {
+        this.medium = value;
+    }
+
+    /**
+     * Gets the value of the fare property.
+     * 
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
+    public double getFare() {
+        return fare;
+    }
+
+    /**
+     * Sets the value of the fare property.
+     * 
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T08:23:47+06:00", comments = "JAXB RI v2.2.11")
+    public void setFare(double value) {
+        this.fare = value;
     }
 
 }
