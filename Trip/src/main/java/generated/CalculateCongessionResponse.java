@@ -11,10 +11,8 @@ package generated;
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import com.example.rideshare.gen.Trip;
 
 
 /**
@@ -27,7 +25,7 @@ import com.example.rideshare.gen.Trip;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Trip" type="{http://www.example.com/rideshare/gen}Trip"/&gt;
+ *         &lt;element name="congession" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,40 +36,31 @@ import com.example.rideshare.gen.Trip;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "trip"
+    "congession"
 })
-@XmlRootElement(name = "CreateTripRequest")
+@XmlRootElement(name = "CalculateCongessionResponse")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:09:37+06:00", comments = "JAXB RI v2.2.11")
-public class CreateTripRequest {
+public class CalculateCongessionResponse {
 
-    @XmlElement(name = "Trip", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:09:37+06:00", comments = "JAXB RI v2.2.11")
-    protected Trip trip;
+    protected double congession;
 
     /**
-     * Gets the value of the trip property.
+     * Gets the value of the congession property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Trip }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:09:37+06:00", comments = "JAXB RI v2.2.11")
-    public Trip getTrip() {
-        return trip;
+    public double getCongession() {
+        return congession;
     }
 
     /**
-     * Sets the value of the trip property.
+     * Sets the value of the congession property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Trip }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:09:37+06:00", comments = "JAXB RI v2.2.11")
-    public void setTrip(Trip value) {
-        this.trip = value;
+    public void setCongession(double value) {
+        this.congession = value;
     }
 
 }

@@ -50,6 +50,7 @@
             <xsd:element name="UpdateRideStateRequest">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element name="TripIdentifier" type="schema:TripIdentifier"/>
                         <xsd:element name="TripHeader" type="schema:TripHeader"/>
                     </xsd:sequence>
                 </xsd:complexType>

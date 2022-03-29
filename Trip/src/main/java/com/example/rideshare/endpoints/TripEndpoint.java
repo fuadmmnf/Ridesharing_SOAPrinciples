@@ -1,10 +1,7 @@
 package com.example.rideshare.endpoints;
 
 
-import com.example.rideshare.gen.AcknowledgementCode;
-import com.example.rideshare.gen.AcknowledgementCodeResponse;
-import com.example.rideshare.gen.Trip;
-import com.example.rideshare.gen.TripHeaderDocument;
+import com.example.rideshare.gen.*;
 import com.example.rideshare.repositories.TripRepository;
 import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +26,15 @@ public class TripEndpoint {
         codeResponse.setAcknowledgementcode(code);
         return codeResponse;
     }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetDetailsRequest")
+    @ResponsePayload
+    public TripDocument getDetails(@RequestPayload GetDetailsRequest getDetailsRequest) {
+        TripDocument tripDocument = new TripDocument();
+        tripDocument.setTrip(tripRepository.find(getDetailsRequest.getTripIdentifier().getId()));
+        return tripDocument;
+    }
+
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateTripRequest")
     @ResponsePayload
