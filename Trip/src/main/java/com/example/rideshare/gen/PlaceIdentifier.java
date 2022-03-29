@@ -11,23 +11,21 @@ package com.example.rideshare.gen;
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TripHeader complex type.
+ * <p>Java class for PlaceIdentifier complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TripHeader"&gt;
+ * &lt;complexType name="PlaceIdentifier"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="TripIdentifier" type="{http://www.example.com/rideshare/gen}TripIdentifier"/&gt;
- *         &lt;element name="status" type="{http://www.example.com/rideshare/gen}Status"/&gt;
+ *         &lt;element name="latitude" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
+ *         &lt;element name="longitude" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,71 +35,52 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TripHeader", propOrder = {
-    "tripIdentifier",
-    "status"
+@XmlType(name = "PlaceIdentifier", propOrder = {
+    "latitude",
+    "longitude"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-public class TripHeader {
+public class PlaceIdentifier {
 
-    @XmlElement(name = "TripIdentifier", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected TripIdentifier tripIdentifier;
-    @XmlElement(required = true)
-    @XmlSchemaType(name = "string")
+    protected double latitude;
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected Status status;
+    protected double longitude;
 
     /**
-     * Gets the value of the tripIdentifier property.
+     * Gets the value of the latitude property.
      * 
-     * @return
-     *     possible object is
-     *     {@link TripIdentifier }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public TripIdentifier getTripIdentifier() {
-        return tripIdentifier;
+    public double getLatitude() {
+        return latitude;
     }
 
     /**
-     * Sets the value of the tripIdentifier property.
+     * Sets the value of the latitude property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link TripIdentifier }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setTripIdentifier(TripIdentifier value) {
-        this.tripIdentifier = value;
+    public void setLatitude(double value) {
+        this.latitude = value;
     }
 
     /**
-     * Gets the value of the status property.
+     * Gets the value of the longitude property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Status }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public Status getStatus() {
-        return status;
+    public double getLongitude() {
+        return longitude;
     }
 
     /**
-     * Sets the value of the status property.
+     * Sets the value of the longitude property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Status }
-     *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setStatus(Status value) {
-        this.status = value;
+    public void setLongitude(double value) {
+        this.longitude = value;
     }
 
 }

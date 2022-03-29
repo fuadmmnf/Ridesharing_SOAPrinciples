@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="tripHeader" type="{http://www.example.com/rideshare/gen}TripHeader"/&gt;
+ *         &lt;element name="place" type="{http://www.example.com/rideshare/gen}Place"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,40 +37,40 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "tripHeader"
+    "place"
 })
-@XmlRootElement(name = "TripHeaderDocument")
+@XmlRootElement(name = "PlaceDocument")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-public class TripHeaderDocument {
+public class PlaceDocument {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected TripHeader tripHeader;
+    protected Place place;
 
     /**
-     * Gets the value of the tripHeader property.
+     * Gets the value of the place property.
      * 
      * @return
      *     possible object is
-     *     {@link TripHeader }
+     *     {@link Place }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public TripHeader getTripHeader() {
-        return tripHeader;
+    public Place getPlace() {
+        return place;
     }
 
     /**
-     * Sets the value of the tripHeader property.
+     * Sets the value of the place property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TripHeader }
+     *     {@link Place }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setTripHeader(TripHeader value) {
-        this.tripHeader = value;
+    public void setPlace(Place value) {
+        this.place = value;
     }
 
 }

@@ -16,21 +16,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Trip complex type.
+ * <p>Java class for Place complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Trip"&gt;
+ * &lt;complexType name="Place"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="header" type="{http://www.example.com/rideshare/gen}TripHeader"/&gt;
- *         &lt;element name="RouteHeader" type="{http://www.example.com/rideshare/gen}RouteHeader"/&gt;
- *         &lt;element name="fare" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
- *         &lt;element name="estTime" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
- *         &lt;element name="medium" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="feedback" type="{http://www.example.com/rideshare/gen}Feedback"/&gt;
+ *         &lt;element name="header" type="{http://www.example.com/rideshare/gen}PlaceHeader"/&gt;
+ *         &lt;element name="full_address" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="photos_url" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="congestion" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,44 +39,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Trip", propOrder = {
+@XmlType(name = "Place", propOrder = {
     "header",
-    "routeHeader",
-    "fare",
-    "estTime",
-    "medium",
-    "feedback"
+    "fullAddress",
+    "type",
+    "photosUrl",
+    "congestion"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-public class Trip {
+public class Place {
 
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected TripHeader header;
-    @XmlElement(name = "RouteHeader", required = true)
+    protected PlaceHeader header;
+    @XmlElement(name = "full_address", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected RouteHeader routeHeader;
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected double fare;
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected double estTime;
+    protected String fullAddress;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected String medium;
-    @XmlElement(required = true)
+    protected String type;
+    @XmlElement(name = "photos_url", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected Feedback feedback;
+    protected String photosUrl;
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    protected double congestion;
 
     /**
      * Gets the value of the header property.
      * 
      * @return
      *     possible object is
-     *     {@link TripHeader }
+     *     {@link PlaceHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public TripHeader getHeader() {
+    public PlaceHeader getHeader() {
         return header;
     }
 
@@ -86,78 +82,16 @@ public class Trip {
      * 
      * @param value
      *     allowed object is
-     *     {@link TripHeader }
+     *     {@link PlaceHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setHeader(TripHeader value) {
+    public void setHeader(PlaceHeader value) {
         this.header = value;
     }
 
     /**
-     * Gets the value of the routeHeader property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RouteHeader }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public RouteHeader getRouteHeader() {
-        return routeHeader;
-    }
-
-    /**
-     * Sets the value of the routeHeader property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RouteHeader }
-     *     
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setRouteHeader(RouteHeader value) {
-        this.routeHeader = value;
-    }
-
-    /**
-     * Gets the value of the fare property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public double getFare() {
-        return fare;
-    }
-
-    /**
-     * Sets the value of the fare property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setFare(double value) {
-        this.fare = value;
-    }
-
-    /**
-     * Gets the value of the estTime property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public double getEstTime() {
-        return estTime;
-    }
-
-    /**
-     * Sets the value of the estTime property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setEstTime(double value) {
-        this.estTime = value;
-    }
-
-    /**
-     * Gets the value of the medium property.
+     * Gets the value of the fullAddress property.
      * 
      * @return
      *     possible object is
@@ -165,12 +99,12 @@ public class Trip {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public String getMedium() {
-        return medium;
+    public String getFullAddress() {
+        return fullAddress;
     }
 
     /**
-     * Sets the value of the medium property.
+     * Sets the value of the fullAddress property.
      * 
      * @param value
      *     allowed object is
@@ -178,34 +112,78 @@ public class Trip {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setMedium(String value) {
-        this.medium = value;
+    public void setFullAddress(String value) {
+        this.fullAddress = value;
     }
 
     /**
-     * Gets the value of the feedback property.
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
-     *     {@link Feedback }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public Feedback getFeedback() {
-        return feedback;
+    public String getType() {
+        return type;
     }
 
     /**
-     * Sets the value of the feedback property.
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Feedback }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setFeedback(Feedback value) {
-        this.feedback = value;
+    public void setType(String value) {
+        this.type = value;
+    }
+
+    /**
+     * Gets the value of the photosUrl property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    public String getPhotosUrl() {
+        return photosUrl;
+    }
+
+    /**
+     * Sets the value of the photosUrl property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    public void setPhotosUrl(String value) {
+        this.photosUrl = value;
+    }
+
+    /**
+     * Gets the value of the congestion property.
+     * 
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    public double getCongestion() {
+        return congestion;
+    }
+
+    /**
+     * Sets the value of the congestion property.
+     * 
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    public void setCongestion(double value) {
+        this.congestion = value;
     }
 
 }

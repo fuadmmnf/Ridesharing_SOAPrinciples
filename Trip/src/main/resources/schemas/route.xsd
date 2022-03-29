@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
            targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
-    <xs:include schemaLocation="trip-header.xsd"/>
     <xs:include schemaLocation="route-header.xsd"/>
-    <xs:include schemaLocation="feedback.xsd"/>
 
-    <xs:element name="TripDocument">
+    <xs:element name="RouteDocument">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="trip" type="tns:Trip"/>
+                <xs:element name="Route" type="tns:Route"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="Trip">
+    <xs:complexType name="Route">
         <xs:sequence>
-            <xs:element name="header" type="tns:TripHeader"/>
-            <xs:element name="RouteHeader" type="tns:RouteHeader"/>
-            <xs:element name="fare" type="xs:double"/>
-            <xs:element name="estTime" type="xs:double"/>
+            <xs:element name="header" type="tns:RouteHeader"/>
             <xs:element name="medium" type="xs:string"/>
-            <xs:element name="feedback" type="tns:Feedback"/>
+            <xs:element name="estimated_time" type="xs:double"/>
+            <xs:sequence>
+                <xs:element name="point" type="tns:PlaceIdentifier" maxOccurs="unbounded"/>
+            </xs:sequence>
         </xs:sequence>
     </xs:complexType>
 

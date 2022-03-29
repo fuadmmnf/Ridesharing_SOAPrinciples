@@ -1,0 +1,76 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.example.com/rideshare/gen"
+                  xmlns:tns="http://www.example.com/rideshare/definitions"
+                  targetNamespace="http://www.example.com/rideshare/definitions">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/place-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/place.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/route-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/route.xsd"/>
+
+
+        </xsd:schema>
+    </wsdl:types>
+
+
+    <wsdl:message name="RouteHeaderDocument">
+        <wsdl:part element="schema:RouteHeaderDocument" name="RouteHeaderDocument"/>
+    </wsdl:message>
+
+    <wsdl:message name="RouteDocument">
+        <wsdl:part element="schema:RouteDocument" name="RouteDocument"/>
+    </wsdl:message>
+    <wsdl:message name="PlaceHeaderDocument">
+        <wsdl:part element="schema:PlaceHeaderDocument" name="PlaceHeaderDocument"/>
+    </wsdl:message>
+    <wsdl:message name="PlaceDocument">
+        <wsdl:part element="schema:PlaceDocument" name="PlaceDocument"/>
+    </wsdl:message>
+
+    <wsdl:portType name="MapResource">
+        <wsdl:operation name="CalculateRoute">
+            <wsdl:input message="tns:RouteHeaderDocument" name="RouteHeaderDocument"/>
+            <wsdl:output message="tns:RouteDocument" name="RouteDocument"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchPlace">
+            <wsdl:input message="tns:PlaceHeaderDocument" name="SearchPlaceRequest"/>
+            <wsdl:output message="tns:PlaceDocument" name="PlaceDocument"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="MapResourceBinding" type="tns:MapResource">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CalculateRoute">
+            <soap:operation soapAction="http://mycompany.com/CalculateRoute"/>
+            <wsdl:input name="CalculateRouteRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RouteDocument">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="SearchPlace">
+            <soap:operation soapAction="http://mycompany.com/SearchPlace"/>
+            <wsdl:input name="SearchPlaceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="PlaceDocument">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MapResourceService">
+        <wsdl:port binding="tns:MapResourceBinding" name="MapResourcePort">
+            <soap:address location="http://localhost:8080/ws/map"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

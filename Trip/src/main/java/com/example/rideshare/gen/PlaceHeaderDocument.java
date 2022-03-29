@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="tripHeader" type="{http://www.example.com/rideshare/gen}TripHeader"/&gt;
+ *         &lt;element name="PlaceHeader" type="{http://www.example.com/rideshare/gen}PlaceHeader"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,40 +37,40 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "tripHeader"
+    "placeHeader"
 })
-@XmlRootElement(name = "TripHeaderDocument")
+@XmlRootElement(name = "PlaceHeaderDocument")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-public class TripHeaderDocument {
+public class PlaceHeaderDocument {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "PlaceHeader", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected TripHeader tripHeader;
+    protected PlaceHeader placeHeader;
 
     /**
-     * Gets the value of the tripHeader property.
+     * Gets the value of the placeHeader property.
      * 
      * @return
      *     possible object is
-     *     {@link TripHeader }
+     *     {@link PlaceHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public TripHeader getTripHeader() {
-        return tripHeader;
+    public PlaceHeader getPlaceHeader() {
+        return placeHeader;
     }
 
     /**
-     * Sets the value of the tripHeader property.
+     * Sets the value of the placeHeader property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TripHeader }
+     *     {@link PlaceHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setTripHeader(TripHeader value) {
-        this.tripHeader = value;
+    public void setPlaceHeader(PlaceHeader value) {
+        this.placeHeader = value;
     }
 
 }

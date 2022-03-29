@@ -3,12 +3,10 @@ package com.example.rideshare.endpoints;
 
 import com.example.rideshare.gen.AcknowledgementCode;
 import com.example.rideshare.gen.AcknowledgementCodeResponse;
+import com.example.rideshare.gen.Trip;
 import com.example.rideshare.gen.TripHeaderDocument;
 import com.example.rideshare.repositories.TripRepository;
-import generated.AdjustTripMetricsRequest;
-import generated.CreateTripRequest;
-import generated.GetTripSummaryRequest;
-import generated.UpdateTripRequest;
+import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -25,6 +23,7 @@ public class TripEndpoint {
     public TripEndpoint(TripRepository tripRepository) {
         this.tripRepository = tripRepository;
     }
+
     private AcknowledgementCodeResponse createAckResponse(AcknowledgementCode code) {
         AcknowledgementCodeResponse codeResponse = new AcknowledgementCodeResponse();
         codeResponse.setAcknowledgementcode(code);
@@ -34,6 +33,7 @@ public class TripEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateTripRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse createTrip(@RequestPayload CreateTripRequest createTripRequest) {
+        tripRepository.createTrip(createTripRequest.getTrip());
         return this.createAckResponse(AcknowledgementCode.CREATED);
     }
 
@@ -41,24 +41,30 @@ public class TripEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateTripRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse updateTrip(@RequestPayload UpdateTripRequest updateTripRequest) {
+        tripRepository.updateTrip(updateTripRequest.getTrip());
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateTripStateRequest")
     @ResponsePayload
-    public AcknowledgementCodeResponse updateTripState(@RequestPayload UpdateTripRequest updateTripRequest) {
+    public AcknowledgementCodeResponse updateTripState(@RequestPayload UpdateTripStateRequest updateTripStateRequest) {
+        Trip trip = tripRepository.find(updateTripStateRequest.getTripHeader().getTripIdentifier().getId());
+        trip.setHeader(updateTripStateRequest.getTripHeader());
+        tripRepository.updateTrip(trip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AdjustTripMetricsRequest")
-    @ResponsePayload
-    public AcknowledgementCodeResponse adjustTripMetrics(@RequestPayload AdjustTripMetricsRequest adjustTripMetricsRequest) {
-        return this.createAckResponse(AcknowledgementCode.UPDATED);
-    }
+//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AdjustTripMetricsRequest")
+//    @ResponsePayload
+//    public AcknowledgementCodeResponse adjustTripMetrics(@RequestPayload AdjustTripMetricsRequest adjustTripMetricsRequest) {
+//        return this.createAckResponse(AcknowledgementCode.UPDATED);
+//    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetTripSummaryRequest")
     @ResponsePayload
     public TripHeaderDocument getTripSummary(@RequestPayload GetTripSummaryRequest getTripSummaryRequest) {
-        return new TripHeaderDocument();
+        TripHeaderDocument tripHeaderDocument = new TripHeaderDocument();
+        tripHeaderDocument.setTripHeader(tripRepository.find(getTripSummaryRequest.getTripIdentifier().getId()).getHeader());
+        return tripHeaderDocument;
     }
 }

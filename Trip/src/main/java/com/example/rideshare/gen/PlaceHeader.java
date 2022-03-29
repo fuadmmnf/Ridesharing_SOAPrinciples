@@ -12,22 +12,21 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TripHeader complex type.
+ * <p>Java class for PlaceHeader complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TripHeader"&gt;
+ * &lt;complexType name="PlaceHeader"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="TripIdentifier" type="{http://www.example.com/rideshare/gen}TripIdentifier"/&gt;
- *         &lt;element name="status" type="{http://www.example.com/rideshare/gen}Status"/&gt;
+ *         &lt;element name="id" type="{http://www.example.com/rideshare/gen}PlaceIdentifier"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,71 +36,70 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TripHeader", propOrder = {
-    "tripIdentifier",
-    "status"
+@XmlType(name = "PlaceHeader", propOrder = {
+    "id",
+    "name"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-public class TripHeader {
+public class PlaceHeader {
 
-    @XmlElement(name = "TripIdentifier", required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected TripIdentifier tripIdentifier;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "string")
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    protected Status status;
+    protected PlaceIdentifier id;
+    @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
+    protected String name;
 
     /**
-     * Gets the value of the tripIdentifier property.
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
-     *     {@link TripIdentifier }
+     *     {@link PlaceIdentifier }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public TripIdentifier getTripIdentifier() {
-        return tripIdentifier;
+    public PlaceIdentifier getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the tripIdentifier property.
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TripIdentifier }
+     *     {@link PlaceIdentifier }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setTripIdentifier(TripIdentifier value) {
-        this.tripIdentifier = value;
+    public void setId(PlaceIdentifier value) {
+        this.id = value;
     }
 
     /**
-     * Gets the value of the status property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
-     *     {@link Status }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public Status getStatus() {
-        return status;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the status property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Status }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T06:12:59+06:00", comments = "JAXB RI v2.2.11")
-    public void setStatus(Status value) {
-        this.status = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
 }
