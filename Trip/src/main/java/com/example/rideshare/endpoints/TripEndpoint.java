@@ -39,7 +39,7 @@ public class TripEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateTripRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse createTrip(@RequestPayload CreateTripRequest createTripRequest) {
-        tripRepository.createTrip(createTripRequest.getTrip());
+        tripRepository.create(createTripRequest.getTrip());
         return this.createAckResponse(AcknowledgementCode.CREATED);
     }
 
@@ -47,7 +47,7 @@ public class TripEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateTripRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse updateTrip(@RequestPayload UpdateTripRequest updateTripRequest) {
-        tripRepository.updateTrip(updateTripRequest.getTrip());
+        tripRepository.update(updateTripRequest.getTrip());
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 
@@ -56,7 +56,7 @@ public class TripEndpoint {
     public AcknowledgementCodeResponse updateTripState(@RequestPayload UpdateTripStateRequest updateTripStateRequest) {
         Trip trip = tripRepository.find(updateTripStateRequest.getTripHeader().getTripIdentifier().getId());
         trip.setHeader(updateTripStateRequest.getTripHeader());
-        tripRepository.updateTrip(trip);
+        tripRepository.update(trip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 

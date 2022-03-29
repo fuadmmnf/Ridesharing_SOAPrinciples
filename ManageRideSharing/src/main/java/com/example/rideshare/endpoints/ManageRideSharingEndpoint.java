@@ -1,7 +1,7 @@
 package com.example.rideshare.endpoints;
 
 
-import com.example.rideshare.clients.TripClient;
+import com.example.rideshare.clients.*;
 import com.example.rideshare.gen.*;
 import com.example.rideshare.repositories.ManageRideSharingRepository;
 import generated.*;
@@ -19,11 +19,13 @@ public class ManageRideSharingEndpoint {
 
     private ManageRideSharingRepository manageRideSharingRepository;
     private TripClient tripClient;
+    private PaymentClient paymentClient;
 
     @Autowired
-    public ManageRideSharingEndpoint(ManageRideSharingRepository manageRideSharingRepository, TripClient tripClient) {
+    public ManageRideSharingEndpoint(ManageRideSharingRepository manageRideSharingRepository, TripClient tripClient, PaymentClient paymentClient) {
         this.manageRideSharingRepository = manageRideSharingRepository;
         this.tripClient = tripClient;
+        this.paymentClient = paymentClient;
     }
 
     private AcknowledgementCodeResponse createAckResponse(AcknowledgementCode code) {
@@ -63,7 +65,7 @@ public class ManageRideSharingEndpoint {
         rideSharingTrip.setTripIdentifier(request.getTripHeader().getTripIdentifier());
         rideSharingTrip.setCustomerIdentifier(request.getCustomerIdentifier());
         rideSharingTrip.setDriver("");
-        manageRideSharingRepository.createRideSharingTrip(rideSharingTrip);
+        manageRideSharingRepository.create(rideSharingTrip);
         return this.createAckResponse(AcknowledgementCode.CREATED);
     }
 
@@ -83,6 +85,17 @@ public class ManageRideSharingEndpoint {
         Trip trip = tripClient.getTrip(storeFeedbackRequest.getTripIdentifier());
         trip.setFeedback(storeFeedbackRequest.getFeedback());
         tripClient.updateTrip(trip);
+        return this.createAckResponse(AcknowledgementCode.UPDATED);
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "MakePaymentRequest")
+    @ResponsePayload
+    public AcknowledgementCodeResponse makePayment(@RequestPayload MakePaymentRequest makePaymentRequest) {
+        paymentClient.createPayment(makePaymentRequest.getPayment());
+
+        RideSharingTrip rideSharingTrip = manageRideSharingRepository.find(makePaymentRequest.getTripIdentifier().getId());
+        rideSharingTrip.setPaymentIdentifier(makePaymentRequest.getPayment().getHeader().getId());
+        manageRideSharingRepository.update(rideSharingTrip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 }

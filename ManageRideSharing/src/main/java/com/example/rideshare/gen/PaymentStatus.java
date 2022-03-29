@@ -14,39 +14,39 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for AcknowledgementCode.
+ * <p>Java class for PaymentStatus.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="AcknowledgementCode"&gt;
+ * &lt;simpleType name="PaymentStatus"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="OK"/&gt;
- *     &lt;enumeration value="CREATED"/&gt;
- *     &lt;enumeration value="UPDATED"/&gt;
- *     &lt;enumeration value="DELETED"/&gt;
+ *     &lt;enumeration value="INIT"/&gt;
+ *     &lt;enumeration value="PROCESSING"/&gt;
+ *     &lt;enumeration value="SUCCESS"/&gt;
  *     &lt;enumeration value="FAILED"/&gt;
+ *     &lt;enumeration value="CANCELED"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "AcknowledgementCode")
+@XmlType(name = "PaymentStatus")
 @XmlEnum
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public enum AcknowledgementCode {
+public enum PaymentStatus {
 
-    OK,
-    CREATED,
-    UPDATED,
-    DELETED,
-    FAILED;
+    INIT,
+    PROCESSING,
+    SUCCESS,
+    FAILED,
+    CANCELED;
 
     public String value() {
         return name();
     }
 
-    public static AcknowledgementCode fromValue(String v) {
+    public static PaymentStatus fromValue(String v) {
         return valueOf(v);
     }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
+           targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
+
+    <xs:element name="DateRangeDocument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DateRange" type="tns:DateRange"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:complexType name="DateRange">
+        <xs:sequence>
+            <xs:element name="start" type="xs:dateTime"/>
+            <xs:element name="end" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

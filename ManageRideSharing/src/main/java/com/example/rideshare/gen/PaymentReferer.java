@@ -16,16 +16,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for PaymentIdentifier complex type.
+ * <p>Java class for PaymentReferer complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="PaymentIdentifier"&gt;
+ * &lt;complexType name="PaymentReferer"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="model_type" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="model_id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,18 +36,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PaymentIdentifier", propOrder = {
-    "id"
+@XmlType(name = "PaymentReferer", propOrder = {
+    "modelType",
+    "modelId"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public class PaymentIdentifier {
+public class PaymentReferer {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "model_type", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected String id;
+    protected String modelType;
+    @XmlElement(name = "model_id", required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    protected String modelId;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the modelType property.
      * 
      * @return
      *     possible object is
@@ -54,12 +59,12 @@ public class PaymentIdentifier {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public String getId() {
-        return id;
+    public String getModelType() {
+        return modelType;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the modelType property.
      * 
      * @param value
      *     allowed object is
@@ -67,8 +72,34 @@ public class PaymentIdentifier {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setId(String value) {
-        this.id = value;
+    public void setModelType(String value) {
+        this.modelType = value;
+    }
+
+    /**
+     * Gets the value of the modelId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    public String getModelId() {
+        return modelId;
+    }
+
+    /**
+     * Sets the value of the modelId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    public void setModelId(String value) {
+        this.modelId = value;
     }
 
 }

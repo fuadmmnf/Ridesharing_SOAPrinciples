@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import com.example.rideshare.gen.Payment;
 import com.example.rideshare.gen.TripIdentifier;
 
 
@@ -28,6 +29,7 @@ import com.example.rideshare.gen.TripIdentifier;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="TripIdentifier" type="{http://www.example.com/rideshare/gen}TripIdentifier"/&gt;
+ *         &lt;element name="Payment" type="{http://www.example.com/rideshare/gen}Payment"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +40,19 @@ import com.example.rideshare.gen.TripIdentifier;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "tripIdentifier"
+    "tripIdentifier",
+    "payment"
 })
-@XmlRootElement(name = "GetTripSummaryRequest")
+@XmlRootElement(name = "MakePaymentRequest")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public class GetTripSummaryRequest {
+public class MakePaymentRequest {
 
     @XmlElement(name = "TripIdentifier", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
     protected TripIdentifier tripIdentifier;
+    @XmlElement(name = "Payment", required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    protected Payment payment;
 
     /**
      * Gets the value of the tripIdentifier property.
@@ -72,6 +78,32 @@ public class GetTripSummaryRequest {
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
     public void setTripIdentifier(TripIdentifier value) {
         this.tripIdentifier = value;
+    }
+
+    /**
+     * Gets the value of the payment property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Payment }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    public Payment getPayment() {
+        return payment;
+    }
+
+    /**
+     * Sets the value of the payment property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Payment }
+     *     
+     */
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    public void setPayment(Payment value) {
+        this.payment = value;
     }
 
 }

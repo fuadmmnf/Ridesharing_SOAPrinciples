@@ -12,22 +12,23 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for RouteHeader complex type.
+ * <p>Java class for DateRange complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="RouteHeader"&gt;
+ * &lt;complexType name="DateRange"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="source" type="{http://www.example.com/rideshare/gen}PlaceHeader"/&gt;
- *         &lt;element name="destination" type="{http://www.example.com/rideshare/gen}PlaceHeader"/&gt;
- *         &lt;element name="distance" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
+ *         &lt;element name="start" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="end" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,91 +38,72 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RouteHeader", propOrder = {
-    "source",
-    "destination",
-    "distance"
+@XmlType(name = "DateRange", propOrder = {
+    "start",
+    "end"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public class RouteHeader {
+public class DateRange {
 
     @XmlElement(required = true)
+    @XmlSchemaType(name = "dateTime")
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected PlaceHeader source;
+    protected XMLGregorianCalendar start;
     @XmlElement(required = true)
+    @XmlSchemaType(name = "dateTime")
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected PlaceHeader destination;
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected double distance;
+    protected XMLGregorianCalendar end;
 
     /**
-     * Gets the value of the source property.
+     * Gets the value of the start property.
      * 
      * @return
      *     possible object is
-     *     {@link PlaceHeader }
+     *     {@link XMLGregorianCalendar }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public PlaceHeader getSource() {
-        return source;
+    public XMLGregorianCalendar getStart() {
+        return start;
     }
 
     /**
-     * Sets the value of the source property.
+     * Sets the value of the start property.
      * 
      * @param value
      *     allowed object is
-     *     {@link PlaceHeader }
+     *     {@link XMLGregorianCalendar }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setSource(PlaceHeader value) {
-        this.source = value;
+    public void setStart(XMLGregorianCalendar value) {
+        this.start = value;
     }
 
     /**
-     * Gets the value of the destination property.
+     * Gets the value of the end property.
      * 
      * @return
      *     possible object is
-     *     {@link PlaceHeader }
+     *     {@link XMLGregorianCalendar }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public PlaceHeader getDestination() {
-        return destination;
+    public XMLGregorianCalendar getEnd() {
+        return end;
     }
 
     /**
-     * Sets the value of the destination property.
+     * Sets the value of the end property.
      * 
      * @param value
      *     allowed object is
-     *     {@link PlaceHeader }
+     *     {@link XMLGregorianCalendar }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setDestination(PlaceHeader value) {
-        this.destination = value;
-    }
-
-    /**
-     * Gets the value of the distance property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public double getDistance() {
-        return distance;
-    }
-
-    /**
-     * Sets the value of the distance property.
-     * 
-     */
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setDistance(double value) {
-        this.distance = value;
+    public void setEnd(XMLGregorianCalendar value) {
+        this.end = value;
     }
 
 }

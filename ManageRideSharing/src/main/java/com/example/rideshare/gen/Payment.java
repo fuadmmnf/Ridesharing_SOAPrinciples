@@ -12,24 +12,25 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for RideSharingTrip complex type.
+ * <p>Java class for Payment complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="RideSharingTrip"&gt;
+ * &lt;complexType name="Payment"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="TripIdentifier" type="{http://www.example.com/rideshare/gen}TripIdentifier"/&gt;
- *         &lt;element name="RideMode" type="{http://www.example.com/rideshare/gen}RideMode"/&gt;
- *         &lt;element name="CustomerIdentifier" type="{http://www.example.com/rideshare/gen}CustomerIdentifier"/&gt;
- *         &lt;element name="driver" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="PaymentIdentifier" type="{http://www.example.com/rideshare/gen}PaymentIdentifier"/&gt;
+ *         &lt;element name="header" type="{http://www.example.com/rideshare/gen}PaymentHeader"/&gt;
+ *         &lt;element name="status" type="{http://www.example.com/rideshare/gen}PaymentStatus"/&gt;
+ *         &lt;element name="model" type="{http://www.example.com/rideshare/gen}PaymentReferer"/&gt;
+ *         &lt;element name="trx_id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="store_id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,112 +40,113 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "RideSharingTrip", propOrder = {
-    "tripIdentifier",
-    "rideMode",
-    "customerIdentifier",
-    "driver",
-    "paymentIdentifier"
+@XmlType(name = "Payment", propOrder = {
+    "header",
+    "status",
+    "model",
+    "trxId",
+    "storeId"
 })
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public class RideSharingTrip {
+public class Payment {
 
-    @XmlElement(name = "TripIdentifier", required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected TripIdentifier tripIdentifier;
-    @XmlElement(name = "RideMode", required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected RideMode rideMode;
-    @XmlElement(name = "CustomerIdentifier", required = true)
-    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected CustomerIdentifier customerIdentifier;
     @XmlElement(required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected String driver;
-    @XmlElement(name = "PaymentIdentifier", required = true)
+    protected PaymentHeader header;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected PaymentIdentifier paymentIdentifier;
+    protected PaymentStatus status;
+    @XmlElement(required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    protected PaymentReferer model;
+    @XmlElement(name = "trx_id", required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    protected String trxId;
+    @XmlElement(name = "store_id", required = true)
+    @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
+    protected String storeId;
 
     /**
-     * Gets the value of the tripIdentifier property.
+     * Gets the value of the header property.
      * 
      * @return
      *     possible object is
-     *     {@link TripIdentifier }
+     *     {@link PaymentHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public TripIdentifier getTripIdentifier() {
-        return tripIdentifier;
+    public PaymentHeader getHeader() {
+        return header;
     }
 
     /**
-     * Sets the value of the tripIdentifier property.
+     * Sets the value of the header property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TripIdentifier }
+     *     {@link PaymentHeader }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setTripIdentifier(TripIdentifier value) {
-        this.tripIdentifier = value;
+    public void setHeader(PaymentHeader value) {
+        this.header = value;
     }
 
     /**
-     * Gets the value of the rideMode property.
+     * Gets the value of the status property.
      * 
      * @return
      *     possible object is
-     *     {@link RideMode }
+     *     {@link PaymentStatus }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public RideMode getRideMode() {
-        return rideMode;
+    public PaymentStatus getStatus() {
+        return status;
     }
 
     /**
-     * Sets the value of the rideMode property.
+     * Sets the value of the status property.
      * 
      * @param value
      *     allowed object is
-     *     {@link RideMode }
+     *     {@link PaymentStatus }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setRideMode(RideMode value) {
-        this.rideMode = value;
+    public void setStatus(PaymentStatus value) {
+        this.status = value;
     }
 
     /**
-     * Gets the value of the customerIdentifier property.
+     * Gets the value of the model property.
      * 
      * @return
      *     possible object is
-     *     {@link CustomerIdentifier }
+     *     {@link PaymentReferer }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public CustomerIdentifier getCustomerIdentifier() {
-        return customerIdentifier;
+    public PaymentReferer getModel() {
+        return model;
     }
 
     /**
-     * Sets the value of the customerIdentifier property.
+     * Sets the value of the model property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CustomerIdentifier }
+     *     {@link PaymentReferer }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setCustomerIdentifier(CustomerIdentifier value) {
-        this.customerIdentifier = value;
+    public void setModel(PaymentReferer value) {
+        this.model = value;
     }
 
     /**
-     * Gets the value of the driver property.
+     * Gets the value of the trxId property.
      * 
      * @return
      *     possible object is
@@ -152,12 +154,12 @@ public class RideSharingTrip {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public String getDriver() {
-        return driver;
+    public String getTrxId() {
+        return trxId;
     }
 
     /**
-     * Sets the value of the driver property.
+     * Sets the value of the trxId property.
      * 
      * @param value
      *     allowed object is
@@ -165,34 +167,34 @@ public class RideSharingTrip {
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setDriver(String value) {
-        this.driver = value;
+    public void setTrxId(String value) {
+        this.trxId = value;
     }
 
     /**
-     * Gets the value of the paymentIdentifier property.
+     * Gets the value of the storeId property.
      * 
      * @return
      *     possible object is
-     *     {@link PaymentIdentifier }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public PaymentIdentifier getPaymentIdentifier() {
-        return paymentIdentifier;
+    public String getStoreId() {
+        return storeId;
     }
 
     /**
-     * Sets the value of the paymentIdentifier property.
+     * Sets the value of the storeId property.
      * 
      * @param value
      *     allowed object is
-     *     {@link PaymentIdentifier }
+     *     {@link String }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setPaymentIdentifier(PaymentIdentifier value) {
-        this.paymentIdentifier = value;
+    public void setStoreId(String value) {
+        this.storeId = value;
     }
 
 }

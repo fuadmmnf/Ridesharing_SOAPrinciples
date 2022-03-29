@@ -1,12 +1,13 @@
 package com.example.rideshare.config;
 
+import com.example.rideshare.clients.PaymentClient;
 import com.example.rideshare.clients.TripClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class TripClientConfig {
+public class PaymentClientConfig {
 
         @Bean
         public Jaxb2Marshaller marshaller() {
@@ -15,9 +16,9 @@ public class TripClientConfig {
             return marshaller;
         }
         @Bean
-        public TripClient tripClient(Jaxb2Marshaller marshaller) {
-            TripClient client = new TripClient();
-            client.setDefaultUri("http://localhost:8301/ws/trip");
+        public PaymentClient paymentClient(Jaxb2Marshaller marshaller) {
+            PaymentClient client = new PaymentClient();
+            client.setDefaultUri("http://localhost:8302/ws/payment");
             client.setMarshaller(marshaller);
             client.setUnmarshaller(marshaller);
             return client;

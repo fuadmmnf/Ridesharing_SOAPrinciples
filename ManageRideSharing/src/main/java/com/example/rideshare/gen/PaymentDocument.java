@@ -12,20 +12,21 @@ import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for PaymentIdentifier complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="PaymentIdentifier"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Payment" type="{http://www.example.com/rideshare/gen}Payment"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,40 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PaymentIdentifier", propOrder = {
-    "id"
+@XmlType(name = "", propOrder = {
+    "payment"
 })
+@XmlRootElement(name = "PaymentDocument")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-public class PaymentIdentifier {
+public class PaymentDocument {
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Payment", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    protected String id;
+    protected Payment payment;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the payment property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Payment }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public String getId() {
-        return id;
+    public Payment getPayment() {
+        return payment;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the payment property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Payment }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T10:57:25+06:00", comments = "JAXB RI v2.2.11")
-    public void setId(String value) {
-        this.id = value;
+    public void setPayment(Payment value) {
+        this.payment = value;
     }
 
 }

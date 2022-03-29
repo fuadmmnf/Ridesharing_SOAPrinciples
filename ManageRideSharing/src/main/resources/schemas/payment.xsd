@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/rideshare/gen"
+           targetNamespace="http://www.example.com/rideshare/gen" elementFormDefault="qualified">
+    <xs:include schemaLocation="payment-header.xsd"/>
+
+    <xs:element name="PaymentDocument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Payment" type="tns:Payment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Payment">
+        <xs:sequence>
+            <xs:element name="header" type="tns:PaymentHeader"/>
+            <xs:element name="status" type="tns:PaymentStatus"/>
+            <xs:element name="model" type="tns:PaymentReferer"/>
+            <xs:element name="trx_id" type="xs:string"/>
+            <xs:element name="store_id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PaymentReferer">
+        <xs:sequence>
+            <xs:element name="model_type" type="xs:string"/>
+            <xs:element name="model_id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="PaymentStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="INIT"/>
+            <xs:enumeration value="PROCESSING"/>
+            <xs:enumeration value="SUCCESS"/>
+            <xs:enumeration value="FAILED"/>
+            <xs:enumeration value="CANCELED"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

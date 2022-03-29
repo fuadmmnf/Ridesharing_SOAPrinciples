@@ -46,7 +46,7 @@ public class TripRepository {
         trips.put("1", trip);
     }
 
-    public void createTrip(Trip trip) {
+    public void create(Trip trip) {
         TripIdentifier ti = new TripIdentifier();
         ti.setId("" + trips.size() + 1);
         TripHeader th = new TripHeader();
@@ -57,11 +57,11 @@ public class TripRepository {
         trips.put(trip.getHeader().getTripIdentifier().getId(), trip);
     }
 
-    public void updateTrip(Trip trip) {
+    public void update(Trip trip) {
         trips.replace(trip.getHeader().getTripIdentifier().getId(), trip);
     }
 
-    public void deleteTrip(String id) {
+    public void delete(String id) {
         trips.remove(id);
     }
 

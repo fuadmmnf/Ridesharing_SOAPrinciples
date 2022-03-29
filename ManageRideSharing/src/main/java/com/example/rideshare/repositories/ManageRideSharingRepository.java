@@ -18,7 +18,15 @@ public class ManageRideSharingRepository {
     public void initData() {
     }
 
-    public RideSharingTrip createRideSharingTrip(RideSharingTrip rideSharingTrip) {
-        return trips.put("" + trips.size() + 1, rideSharingTrip);
+    public void create(RideSharingTrip rideSharingTrip) {
+        trips.put("" + trips.size() + 1, rideSharingTrip);
+    }
+
+    public void update(RideSharingTrip rideSharingTrip) {
+        trips.replace(rideSharingTrip.getTripIdentifier().getId(), rideSharingTrip);
+    }
+
+    public RideSharingTrip find(String id) {
+        return trips.get(id);
     }
 }

@@ -1,0 +1,145 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://www.example.com/rideshare/gen"
+                  xmlns:tns="http://www.example.com/rideshare/definitions"
+                  targetNamespace="http://www.example.com/rideshare/definitions">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/payment-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/payment.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/date-range.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/acknowledgement-code.xsd"/>
+
+            <xsd:element name="InitiatePaymentRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Payment" type="schema:Payment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="HandlePaymentSuccessRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="PaymentIdentifier" type="schema:PaymentIdentifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="HandlePaymentFailureRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="PaymentIdentifier" type="schema:PaymentIdentifier"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="GetTransactionsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="DateRange" type="schema:DateRange"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="GetTransactionsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Payment" type="schema:Payment" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="InitiatePaymentRequest">
+        <wsdl:part element="schema:InitiatePaymentRequest" name="InitiatePaymentRequest"/>
+    </wsdl:message>
+    <wsdl:message name="HandlePaymentSuccessRequest">
+        <wsdl:part element="schema:HandlePaymentSuccessRequest" name="HandlePaymentSuccessRequest"/>
+    </wsdl:message>
+    <wsdl:message name="HandlePaymentFailureRequest">
+        <wsdl:part element="schema:HandlePaymentFailureRequest" name="HandlePaymentFailureRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetTransactionsRequest">
+        <wsdl:part element="schema:GetTransactionsRequest" name="GetTransactionsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="AcknowledgementCodeResponse">
+        <wsdl:part element="schema:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetTransactionsResponse">
+        <wsdl:part element="schema:GetTransactionsResponse" name="GetTransactionsResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="PaymentResource">
+        <wsdl:operation name="InitiatePayment">
+            <wsdl:input message="tns:InitiatePaymentRequest" name="InitiatePaymentRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="HandlePaymentSuccess">
+            <wsdl:input message="tns:HandlePaymentSuccessRequest" name="HandlePaymentSuccessRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="HandlePaymentFailure">
+            <wsdl:input message="tns:HandlePaymentFailureRequest" name="HandlePaymentFailureRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTransactions">
+            <wsdl:input message="tns:GetTransactionsRequest" name="GetTransactionsRequest"/>
+            <wsdl:output message="tns:GetTransactionsResponse" name="GetTransactionsResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+
+    <wsdl:binding name="PaymentResourceBinding" type="tns:PaymentResource">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="InitiatePayment">
+            <soap:operation soapAction="http://mycompany.com/InitiatePayment"/>
+            <wsdl:input name="InitiatePaymentRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HandlePaymentSuccess">
+            <soap:operation soapAction="http://mycompany.com/HandlePaymentSuccess"/>
+            <wsdl:input name="HandlePaymentSuccessRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HandlePaymentFailure">
+            <soap:operation soapAction="http://mycompany.com/HandlePaymentFailure"/>
+            <wsdl:input name="HandlePaymentFailureRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTransactions">
+            <soap:operation soapAction="http://mycompany.com/GetTransactions"/>
+            <wsdl:input name="GetTransactionsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetTransactionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PaymentResourceService">
+        <wsdl:port binding="tns:PaymentResourceBinding" name="PaymentResourcePort">
+            <soap:address location="http://localhost:8302/ws/payment"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

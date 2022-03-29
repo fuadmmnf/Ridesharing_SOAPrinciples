@@ -21,6 +21,8 @@
                         schemaLocation="../schemas/place-header.xsd"/>
             <xsd:import namespace="http://www.example.com/rideshare/gen"
                         schemaLocation="../schemas/route-header.xsd"/>
+            <xsd:import namespace="http://www.example.com/rideshare/gen"
+                        schemaLocation="../schemas/payment.xsd"/>
 
             <xsd:element name="GetRideOptionsRequest">
                 <xsd:complexType>
@@ -64,6 +66,15 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+
+            <xsd:element name="MakePaymentRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="TripIdentifier" type="schema:TripIdentifier"/>
+                        <xsd:element name="Payment" type="schema:Payment"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
     </wsdl:types>
 
@@ -82,6 +93,9 @@
     </wsdl:message>
     <wsdl:message name="StoreFeedbackRequest">
         <wsdl:part element="schema:StoreFeedbackRequest" name="StoreFeedbackRequest"/>
+    </wsdl:message>
+    <wsdl:message name="MakePaymentRequest">
+        <wsdl:part element="schema:MakePaymentRequest" name="MakePaymentRequest"/>
     </wsdl:message>
 
     <wsdl:message name="AcknowledgementCodeResponse">
@@ -107,6 +121,10 @@
 
         <wsdl:operation name="StoreFeedback">
             <wsdl:input message="tns:StoreFeedbackRequest" name="StoreFeedbackRequest"/>
+            <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="MakePayment">
+            <wsdl:input message="tns:MakePaymentRequest" name="MakePaymentRequest"/>
             <wsdl:output message="tns:AcknowledgementCodeResponse" name="AcknowledgementCodeResponse"/>
         </wsdl:operation>
     </wsdl:portType>
@@ -147,6 +165,16 @@
         <wsdl:operation name="StoreFeedback">
             <soap:operation soapAction="http://mycompany.com/GetRideOptions"/>
             <wsdl:input name="StoreFeedbackRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="AcknowledgementCodeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="MakePayment">
+            <soap:operation soapAction="http://mycompany.com/MakePayment"/>
+            <wsdl:input name="MakePaymentRequest">
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="AcknowledgementCodeResponse">
