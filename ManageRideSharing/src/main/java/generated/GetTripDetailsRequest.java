@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import com.example.rideshare.gen.Customer;
+import com.example.rideshare.gen.TripIdentifier;
 
 
 /**
@@ -27,7 +27,7 @@ import com.example.rideshare.gen.Customer;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Customer" type="{http://www.example.com/rideshare/gen}Customer"/&gt;
+ *         &lt;element name="TripIdentifier" type="{http://www.example.com/rideshare/gen}TripIdentifier"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,40 +38,40 @@ import com.example.rideshare.gen.Customer;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "customer"
+    "tripIdentifier"
 })
-@XmlRootElement(name = "UpdateProfileRequest")
+@XmlRootElement(name = "GetTripDetailsRequest")
 @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:28:18+06:00", comments = "JAXB RI v2.2.11")
-public class UpdateProfileRequest {
+public class GetTripDetailsRequest {
 
-    @XmlElement(name = "Customer", required = true)
+    @XmlElement(name = "TripIdentifier", required = true)
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:28:18+06:00", comments = "JAXB RI v2.2.11")
-    protected Customer customer;
+    protected TripIdentifier tripIdentifier;
 
     /**
-     * Gets the value of the customer property.
+     * Gets the value of the tripIdentifier property.
      * 
      * @return
      *     possible object is
-     *     {@link Customer }
+     *     {@link TripIdentifier }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:28:18+06:00", comments = "JAXB RI v2.2.11")
-    public Customer getCustomer() {
-        return customer;
+    public TripIdentifier getTripIdentifier() {
+        return tripIdentifier;
     }
 
     /**
-     * Sets the value of the customer property.
+     * Sets the value of the tripIdentifier property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Customer }
+     *     {@link TripIdentifier }
      *     
      */
     @Generated(value = "com.sun.tools.xjc.Driver", date = "2022-03-29T09:28:18+06:00", comments = "JAXB RI v2.2.11")
-    public void setCustomer(Customer value) {
-        this.customer = value;
+    public void setTripIdentifier(TripIdentifier value) {
+        this.tripIdentifier = value;
     }
 
 }

@@ -29,9 +29,9 @@ public class TripEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetDetailsRequest")
     @ResponsePayload
-    public TripDocument getDetails(@RequestPayload GetDetailsRequest getDetailsRequest) {
+    public TripDocument getDetails(@RequestPayload GetTripDetailsRequest getTripDetailsRequest) {
         TripDocument tripDocument = new TripDocument();
-        tripDocument.setTrip(tripRepository.find(getDetailsRequest.getTripIdentifier().getId()));
+        tripDocument.setTrip(tripRepository.find(getTripDetailsRequest.getTripIdentifier().getId()));
         return tripDocument;
     }
 

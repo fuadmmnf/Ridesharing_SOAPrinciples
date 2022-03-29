@@ -71,14 +71,18 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateRideStateRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse updateRideState(@RequestPayload UpdateRideStateRequest updateRideStateRequest) {
-        tripClient.(request.getTripHeader()); // header contains string hash as ID so, id can be  uniquely calculated without creating
+        Trip trip = tripClient.getTrip(updateRideStateRequest.getTripIdentifier());
+        trip.setHeader(updateRideStateRequest.getTripHeader());
+        tripClient.updateTrip(trip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "StoreFeedbackRequest")
     @ResponsePayload
-    public AcknowledgementCodeResponse storeFeedback(@RequestPayload StoreFeedbackRequest request) {
-//        request.get
+    public AcknowledgementCodeResponse storeFeedback(@RequestPayload StoreFeedbackRequest storeFeedbackRequest) {
+        Trip trip = tripClient.getTrip(storeFeedbackRequest.getTripIdentifier());
+        trip.setFeedback(storeFeedbackRequest.getFeedback());
+        tripClient.updateTrip(trip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }
 }
