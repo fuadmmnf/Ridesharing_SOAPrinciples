@@ -5,24 +5,24 @@
     <soapenv:Body>
         <MakePaymentRequest>
            <TripIdentifier>
-               <id>1</id>
+               <gs:id>1</gs:id>
            </TripIdentifier>
             <Payment>
-                <header>
-                    <id>
-                        <id></id>
-                    </id>
-                    <medium>bkash</medium>
-                    <acount_number>8801241141245</acount_number>
-                    <amount>100</amount>
-                </header>
-                <status>INIT</status>
-                <model>
-                    <model_type>trip</model_type>
-                    <model_id>1</model_id>
-                </model>
-                <trx_id></trx_id>
-                <store_id>uthao-ridesharing</store_id>
+                <gs:header>
+                    <gs:id>
+                        <gs:id></gs:id>
+                    </gs:id>
+                    <gs:medium>bkash</gs:medium>
+                    <gs:account_number>8801241141245</gs:account_number>
+                    <gs:amount>100</gs:amount>
+                </gs:header>
+                <gs:status>INIT</gs:status>
+                <gs:model>
+                    <gs:model_type>trip</gs:model_type>
+                    <gs:model_id>1</gs:model_id>
+                </gs:model>
+                <gs:trx_id></gs:trx_id>
+                <gs:store_id>uthao-ridesharing</gs:store_id>
             </Payment>
         </MakePaymentRequest>
     </soapenv:Body>

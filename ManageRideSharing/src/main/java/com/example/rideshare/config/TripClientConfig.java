@@ -8,12 +8,8 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 @Configuration
 public class TripClientConfig {
 
-        @Bean
-        public Jaxb2Marshaller marshaller() {
-            Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            marshaller.setContextPath("generated");
-            return marshaller;
-        }
+
+
         @Bean
         public TripClient tripClient(Jaxb2Marshaller marshaller) {
             TripClient client = new TripClient();

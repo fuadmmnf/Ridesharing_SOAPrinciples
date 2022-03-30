@@ -90,11 +90,9 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "MakePaymentRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse makePayment(@RequestPayload MakePaymentRequest makePaymentRequest) {
-//        String tripId = "1";
-//        TripIdentifier ti = new TripIdentifier();
-//        ti.setId(tripId);
+//        System.out.println(makePaymentRequest.getTripIdentifier().getId());
         Trip trip = tripClient.getTrip(makePaymentRequest.getTripIdentifier());
-        System.out.println(makePaymentRequest.getTripIdentifier().getId());
+
         paymentClient.createPayment(makePaymentRequest.getPayment());
 
         TripHeader th = trip.getHeader();
