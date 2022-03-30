@@ -17,7 +17,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class MapEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
     private MapRepository mapRepository;
 

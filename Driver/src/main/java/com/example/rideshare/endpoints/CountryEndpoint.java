@@ -13,7 +13,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class CountryEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
     private CountryRepository countryRepository;
 

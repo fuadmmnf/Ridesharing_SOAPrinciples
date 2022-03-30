@@ -1,0 +1,26 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://www.example.com/rideshare/gen"
+>
+    <soapenv:Header/>
+    <soapenv:Body>
+        <MakePaymentRequest>
+           <TripIdentifier>
+               <id>1</id>
+           </TripIdentifier>
+            <Payment>
+                <PaymentHeader>
+                    <PaymentIdentifier>
+                        <id></id>
+                    </PaymentIdentifier>
+                    <medium>bkash</medium>
+                    <acount_number>8801241141245</acount_number>
+                    <amount>100</amount>
+                </PaymentHeader>
+                <Status>INIT</Status>
+                <model>trip</model>
+                <trx_id></trx_id>
+                <store_id>uthao-ridesharing</store_id>
+            </Payment>
+        </MakePaymentRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

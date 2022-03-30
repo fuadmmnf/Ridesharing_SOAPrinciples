@@ -47,7 +47,7 @@
                 <xsd:complexType>
                     <xsd:sequence>
                         <xsd:element name="CustomerIdentifier" type="schema:CustomerIdentifier"/>
-                        <xsd:element name="TripHeader" type="schema:TripHeader"/>
+                        <xsd:element name="Trip" type="schema:Trip"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>

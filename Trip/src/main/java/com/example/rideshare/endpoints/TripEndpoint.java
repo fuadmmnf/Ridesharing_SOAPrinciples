@@ -12,9 +12,9 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class TripEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
-    private TripRepository tripRepository;
+    private  TripRepository tripRepository;
 
     @Autowired
     public TripEndpoint(TripRepository tripRepository) {
@@ -27,7 +27,7 @@ public class TripEndpoint {
         return codeResponse;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetDetailsRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetTripDetailsRequest")
     @ResponsePayload
     public TripDocument getDetails(@RequestPayload GetTripDetailsRequest getTripDetailsRequest) {
         TripDocument tripDocument = new TripDocument();

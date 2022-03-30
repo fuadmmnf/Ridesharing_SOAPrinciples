@@ -16,7 +16,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class PaymentEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
     private PaymentRepository paymentRepository;
 
@@ -34,6 +34,7 @@ public class PaymentEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "InitiatePaymentRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse initiatePayment(@RequestPayload InitiatePaymentRequest initiatePaymentRequest) {
+        System.out.println("Payment initialization done");
         return this.createAckResponse(AcknowledgementCode.CREATED);
     }
 

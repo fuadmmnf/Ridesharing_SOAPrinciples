@@ -1,10 +1,6 @@
 package com.example.rideshare.clients;
 
-import com.example.rideshare.gen.*;
-import generated.CreateTripRequest;
-import generated.GetTripDetailsRequest;
-import generated.InitiatePaymentRequest;
-import generated.UpdateTripRequest;
+import generated.*;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class PaymentClient extends WebServiceGatewaySupport {

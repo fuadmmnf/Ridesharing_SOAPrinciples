@@ -12,7 +12,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class CustomerEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
     private CustomerRepository customerRepository;
 

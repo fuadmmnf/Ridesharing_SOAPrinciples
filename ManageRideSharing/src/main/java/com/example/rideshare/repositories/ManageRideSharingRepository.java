@@ -2,7 +2,8 @@ package com.example.rideshare.repositories;
 
 
 
-import com.example.rideshare.gen.RideSharingTrip;
+;
+import generated.RideSharingTrip;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

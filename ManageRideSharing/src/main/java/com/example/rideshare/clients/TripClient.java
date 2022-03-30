@@ -1,16 +1,11 @@
 package com.example.rideshare.clients;
 
-import com.example.rideshare.gen.*;
-import generated.CreateTripRequest;
-import generated.GetTripDetailsRequest;
-import generated.UpdateTripRequest;
+import generated.*;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class TripClient extends WebServiceGatewaySupport {
-    public AcknowledgementCode createTrip(TripHeader tripHeader) {
+    public AcknowledgementCode createTrip(Trip trip) {
         CreateTripRequest createTripRequest = new CreateTripRequest();
-        Trip trip = new Trip();
-        trip.setHeader(tripHeader);
         createTripRequest.setTrip(trip);
 
         return ((AcknowledgementCodeResponse) getWebServiceTemplate()

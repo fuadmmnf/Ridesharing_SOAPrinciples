@@ -59,6 +59,7 @@
                 </executions>
                 <configuration>
                     <schemaDirectory>${project.basedir}/src/main/resources/contracts</schemaDirectory>
+                    <generatePackage>generated</generatePackage>
                     <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                     <markGenerated>true</markGenerated>
                     <schemaIncludes>

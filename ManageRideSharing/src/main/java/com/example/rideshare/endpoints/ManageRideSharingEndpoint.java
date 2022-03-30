@@ -2,7 +2,6 @@ package com.example.rideshare.endpoints;
 
 
 import com.example.rideshare.clients.*;
-import com.example.rideshare.gen.*;
 import com.example.rideshare.repositories.ManageRideSharingRepository;
 import generated.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.Arrays;
 
 @Endpoint
 public class ManageRideSharingEndpoint {
-    private static final String NAMESPACE_URI = "http://www.example.com/rideshare/gen";
+    private static final String NAMESPACE_URI = "";
 
     private ManageRideSharingRepository manageRideSharingRepository;
     private TripClient tripClient;
@@ -59,10 +58,10 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CreateRideRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse createRideRequest(@RequestPayload CreateRideRequest request) {
-        tripClient.createTrip(request.getTripHeader()); // called when user confirms ride
+        tripClient.createTrip(request.getTrip()); // called when user confirms ride
 
         RideSharingTrip rideSharingTrip = new RideSharingTrip();
-        rideSharingTrip.setTripIdentifier(request.getTripHeader().getTripIdentifier());
+        rideSharingTrip.setTripIdentifier(request.getTrip().getHeader().getTripIdentifier());
         rideSharingTrip.setCustomerIdentifier(request.getCustomerIdentifier());
         rideSharingTrip.setDriver("");
         manageRideSharingRepository.create(rideSharingTrip);
@@ -91,7 +90,14 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "MakePaymentRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse makePayment(@RequestPayload MakePaymentRequest makePaymentRequest) {
+        Trip trip = tripClient.getTrip(makePaymentRequest.getTripIdentifier());
+        System.out.println(makePaymentRequest.getTripIdentifier().getId());
         paymentClient.createPayment(makePaymentRequest.getPayment());
+
+        TripHeader th = trip.getHeader();
+        th.setStatus(Status.FINISHED);
+        trip.setHeader(th);
+        tripClient.updateTrip(trip);
 
         RideSharingTrip rideSharingTrip = manageRideSharingRepository.find(makePaymentRequest.getTripIdentifier().getId());
         rideSharingTrip.setPaymentIdentifier(makePaymentRequest.getPayment().getHeader().getId());

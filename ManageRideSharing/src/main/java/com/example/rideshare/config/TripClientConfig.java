@@ -11,13 +11,13 @@ public class TripClientConfig {
         @Bean
         public Jaxb2Marshaller marshaller() {
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            marshaller.setContextPath("com.example.rideshare.gen");
+            marshaller.setContextPath("generated");
             return marshaller;
         }
         @Bean
         public TripClient tripClient(Jaxb2Marshaller marshaller) {
             TripClient client = new TripClient();
-            client.setDefaultUri("http://localhost:8301/ws/trip");
+            client.setDefaultUri("http://localhost:8201/ws/trip");
             client.setMarshaller(marshaller);
             client.setUnmarshaller(marshaller);
             return client;
