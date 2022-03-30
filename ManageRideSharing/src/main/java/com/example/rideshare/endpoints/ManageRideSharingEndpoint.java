@@ -90,6 +90,9 @@ public class ManageRideSharingEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "MakePaymentRequest")
     @ResponsePayload
     public AcknowledgementCodeResponse makePayment(@RequestPayload MakePaymentRequest makePaymentRequest) {
+//        String tripId = "1";
+//        TripIdentifier ti = new TripIdentifier();
+//        ti.setId(tripId);
         Trip trip = tripClient.getTrip(makePaymentRequest.getTripIdentifier());
         System.out.println(makePaymentRequest.getTripIdentifier().getId());
         paymentClient.createPayment(makePaymentRequest.getPayment());
@@ -100,7 +103,12 @@ public class ManageRideSharingEndpoint {
         tripClient.updateTrip(trip);
 
         RideSharingTrip rideSharingTrip = manageRideSharingRepository.find(makePaymentRequest.getTripIdentifier().getId());
+//        RideSharingTrip rideSharingTrip = manageRideSharingRepository.find("1");
         rideSharingTrip.setPaymentIdentifier(makePaymentRequest.getPayment().getHeader().getId());
+
+//        PaymentIdentifier pi = new PaymentIdentifier();
+//        pi.setId("1");
+//        rideSharingTrip.setPaymentIdentifier(pi);
         manageRideSharingRepository.update(rideSharingTrip);
         return this.createAckResponse(AcknowledgementCode.UPDATED);
     }

@@ -8,16 +8,19 @@
                <id>1</id>
            </TripIdentifier>
             <Payment>
-                <PaymentHeader>
-                    <PaymentIdentifier>
+                <header>
+                    <id>
                         <id></id>
-                    </PaymentIdentifier>
+                    </id>
                     <medium>bkash</medium>
                     <acount_number>8801241141245</acount_number>
                     <amount>100</amount>
-                </PaymentHeader>
-                <Status>INIT</Status>
-                <model>trip</model>
+                </header>
+                <status>INIT</status>
+                <model>
+                    <model_type>trip</model_type>
+                    <model_id>1</model_id>
+                </model>
                 <trx_id></trx_id>
                 <store_id>uthao-ridesharing</store_id>
             </Payment>
