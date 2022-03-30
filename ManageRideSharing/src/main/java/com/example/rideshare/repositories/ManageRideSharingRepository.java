@@ -19,9 +19,9 @@ public class ManageRideSharingRepository {
     public void initData() {
         RideSharingTrip rideSharingTrip = new RideSharingTrip();
 
-        PaymentIdentifier pi = new PaymentIdentifier();
-        pi.setId("1");
-        rideSharingTrip.setPaymentIdentifier(pi);
+//        PaymentIdentifier pi = new PaymentIdentifier();
+//        pi.setId("1");
+//        rideSharingTrip.setPaymentIdentifier(pi);
 
         TripIdentifier ti = new TripIdentifier();
         ti.setId("1");
